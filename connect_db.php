@@ -7,7 +7,7 @@ OR die(mysqli_connect_error());
 else
 {
 //for mamp users its "root","root" rather than "root",""
-$dbc = mysqli_connect("localhost", "root", "", "site_db") 
+$dbc = mysqli_connect("localhost:8889", "root", "root", "site_db") 
 OR die(mysqli_connect_error());
 }
 
