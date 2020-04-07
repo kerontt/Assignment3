@@ -1,3 +1,15 @@
+<html>
+
+
+
+<!-- Start of body tags includes style sheet references and bootstrap if applicable. -->
+<body>
+
+
+</body>
+
+
+<!-- Start of Php -->
 <?php # DISPLAY COMPLETE LOGGED IN PAGE.
 
 # Access session.
@@ -11,7 +23,7 @@ $page_title = 'Home' ;
 include ( 'includes/header.html' ) ;
 
 # Display body section.
-echo "<h1>HOME</h1><p>You are now logged in, {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
+echo "<h1>Home</h1><p>You are now logged in, {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
 
 # Create navigation links.
 echo '<p><a href="forum.php">Forum</a> | <a href="shop.php">Shop</a> | <a href="goodbye.php">Logout</a></p>';
@@ -19,3 +31,5 @@ echo '<p><a href="forum.php">Forum</a> | <a href="shop.php">Shop</a> | <a href="
 # Display footer section.
 include ( 'includes/footer.html' ) ;
 ?>
+
+</html>

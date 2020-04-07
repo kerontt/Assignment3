@@ -1,4 +1,15 @@
-<?php # DISPLAY COMPLETE LOGIN PAGE.
+<html>
+
+
+
+<!-- Start of body tags includes style sheet references and bootstrap if applicable. -->
+<body>
+
+
+</body>
+
+
+<!-- Start of Php --><?php # DISPLAY COMPLETE LOGIN PAGE.
 
 # Set page title and display header section.
 $page_title = 'Login' ;
@@ -7,7 +18,7 @@ include ( 'includes/header.html' ) ;
 # Display any error messages if present.
 if ( isset( $errors ) && !empty( $errors ) )
 {
- echo '<p id="err_msg">Oops! There was a problem:<br>' ;
+ echo '<p id="err_msg">Oops! Something went wrong!:<br>' ;
  foreach ( $errors as $msg ) { echo " - $msg<br>" ; }
  echo 'Please try again or <a href="register.php">Register</a></p>' ;
 }
@@ -23,7 +34,13 @@ if ( isset( $errors ) && !empty( $errors ) )
 
 <?php 
 
+
+
 # Display footer section.
 include ( 'includes/footer.html' ) ; 
 
 ?>
+
+
+
+</html>
