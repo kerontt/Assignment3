@@ -1,5 +1,7 @@
 <html>
-
+<head>
+  <title>Home</title>
+</head>
 
 
 <!-- Start of body tags includes style sheet references and bootstrap if applicable. -->
@@ -15,19 +17,28 @@
 # Access session.
 session_start() ; 
 
-# Redirect if not logged in.
-if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
 
 # Set page title and display header section.
-$page_title = 'Home' ;
-include ( 'includes/header.html' ) ;
 
-# Display body section.
-echo "<h1>Home</h1><p>You are now logged in, {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
+include ( 'includes/header.html' ) ;
+include ( 'includes/menu.html' ) ;
+
+
+if ($_SESSION['Firstname'] = "") {
+# Display body section.if logged in
+echo "<h1>Home</h1><p>You are not logged in </p>";
 
 # Create navigation links.
-echo '<p><a href="forum.php">Forum</a> | <a href="shop.php">Shop</a> | <a href="goodbye.php">Logout</a></p>';
+echo '<p><a href="forum.php">Forum</a> | <a href="shop.php">Shop</a> | <a href="login.php">Login</a></p>';
+}
+else {
+    
+    echo "<h1>Home</h1><p>You are logged in {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
+    echo '<p><a href="forum.php">Forum</a> | <a href="shop.php">Shop</a> | <a href="goodbye.php">Logout</a></p>';
+    
+}
 
+    
 # Display footer section.
 include ( 'includes/footer.html' ) ;
 ?>
