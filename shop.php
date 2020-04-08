@@ -11,7 +11,10 @@ $page_title = 'Shop' ;
 include ( 'includes/header.html' ) ;
 include ( 'includes/menu.html' ) ;
 
+//-- Index product heading start-->
 
+
+// index end
 # Open database connection.
 require ( 'connect_db.php' ) ;
 
@@ -20,13 +23,19 @@ $q = "SELECT * FROM shop" ;
 $r = mysqli_query( $dbc, $q ) ;
 if ( mysqli_num_rows( $r ) > 0 )
 {
+    
+    $thisItem = "item_name";
+    $thisItemDesc = "item_desc";
+    $thisItemImage = "item_img";
+    $thisItemPrice = "item_price";
+    $thisItemID = "item_id";
   # Display body section.
   echo '<div>';
   while ( $row = mysqli_fetch_array( $r, MYSQLI_ASSOC ))
   {
-    echo '<div><strong>' . $row['item_name'] .'</strong><br><span style="font-size:smaller">'. $row['item_desc'] . '</span><br><img src='. $row['item_img'].'><br>$' . $row['item_price'] . '<br><a href="added.php?id='.$row['item_id'].'">Add To Cart</a></td>';
+    echo '<div class="product"><strong>' . $row[$thisItem] .'</strong><br><span style="font-size:smaller">'. $row[$thisItemDesc] . '</span><br><img class="thumbnail" src='. $row[$thisItemImage].'><br>$' . $row[$thisItemPrice] . '<br><a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" role="button">Add To Cart</a>';
   }
-  echo '<div</table>';
+  echo '</div>';
   
   # Close database connection.
   mysqli_close( $dbc ) ; 
@@ -35,7 +44,7 @@ if ( mysqli_num_rows( $r ) > 0 )
 else { echo '<p>There are currently no items in this shop.</p>' ; }
 
 # Create navigation links.
-echo '<p><a href="cart.php">View Cart</a> | <a href="forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
+echo '<p><a href="../cart.php">View Cart</a> | <a href="../forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
 
 # Display footer section.
 include ( 'includes/footer.html' ) ;
