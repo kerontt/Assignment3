@@ -9,6 +9,8 @@ if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load()
 # Set page title and display header section.
 $page_title = 'Shop' ;
 include ( 'includes/header.html' ) ;
+include ( 'includes/menu.html' ) ;
+
 
 # Open database connection.
 require ( 'connect_db.php' ) ;
@@ -19,12 +21,12 @@ $r = mysqli_query( $dbc, $q ) ;
 if ( mysqli_num_rows( $r ) > 0 )
 {
   # Display body section.
-  echo '<table><tr>';
+  echo '<div>';
   while ( $row = mysqli_fetch_array( $r, MYSQLI_ASSOC ))
   {
-    echo '<td><strong>' . $row['item_name'] .'</strong><br><span style="font-size:smaller">'. $row['item_desc'] . '</span><br><img src='. $row['item_img'].'><br>$' . $row['item_price'] . '<br><a href="added.php?id='.$row['item_id'].'">Add To Cart</a></td>';
+    echo '<div><strong>' . $row['item_name'] .'</strong><br><span style="font-size:smaller">'. $row['item_desc'] . '</span><br><img src='. $row['item_img'].'><br>$' . $row['item_price'] . '<br><a href="added.php?id='.$row['item_id'].'">Add To Cart</a></td>';
   }
-  echo '</tr></table>';
+  echo '<div</table>';
   
   # Close database connection.
   mysqli_close( $dbc ) ; 
