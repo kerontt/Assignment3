@@ -19,7 +19,9 @@ session_destroy() ;
 # Display body section.
 echo '<h1>Goodbye!</h1><p>You are now logged out.</p><p><a href="login.php">Login</a></p>' ;
 
+
 # Display footer section.
 include ( 'includes/footer.html' ) ;
 
 ?>
+window.location.replace("https://www.google.com/");

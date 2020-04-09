@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$lastname =  $_SESSION['last_name'];
 	$subject = $_POST['subject'];
 	$message = $_POST['message'];
+	
   
     # Execute inserting into 'forum' database table.
     $q = "INSERT INTO forum(first_name,last_name,subject,message,post_date) 

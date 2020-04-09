@@ -1,3 +1,45 @@
 header > h1 { padding: 10px; border-bottom: 1px dashed black ; font-style: italic ; font-size: x-large; text-align:right;}
-footer > p { border-top: 1px dashed black ; font-style: italic ; }
+Assress { padding: 10px; border-bottom: 1px dashed black ; font-style: italic ; font-size: x-large; text-align:right;}
+footer > p { border-top: 1px dashed black ; font-style: italic ; text-align:center; }
 p#err_msg { color:#F00; font-weight:bold; }
+.product {
+					border-style: outset;
+					border-width: thin;
+					border-radius:5px;
+					float: left;
+					display:fixed;
+					text-align: center;
+					padding: 20px; 
+					margin: 20px;
+					height: 400px;
+					width: 230px;
+					text-decoration: none;
+				}
+				.thumbnail {
+				border: 0px solid #ddd;
+  border-radius: 0px;
+  padding: 5px;
+  width: 150px;
+  height: 140px;
+  text-decoration: none;
+				
+				}
+				
+	.Container{
+	background-color: whitesmoke;
+	box-shadow: 1px 1px 2px 1px grey;
+	padding: 50px 8px 20px 38px;
+	width: 30%;
+	height: 80%;
+	margin-left:35;
+	}
+	.formtxt{
+	width: 100%;
+	height: 5%;
+	botder:;
+	boder-radius: 05px;
+	padding:20px 15px 20px 15px;
+	margin: 10px 0px 15px 0px;
+	}
+	
+	
