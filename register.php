@@ -3,7 +3,6 @@
 # Set page title and display header section.
 $page_title = 'Register' ;
 include ( 'includes/header.html' ) ;
-include ( 'includes/menu.html' ) ;
 
 # Check form submitted.
 if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
@@ -14,11 +13,12 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   # Initialize an error array.
   $errors = array();
   
-  # Check for a title name.
-  if ( empty( $_POST[ 'Title' ] ) )
-  { $errors[] = 'Select preferred title.' ; }
+  # Check for a first name.
+  if ( empty( $_POST[ 'title' ] ) )
+  { $errors[] = 'Enter your preferred title.' ; }
   else
-  { $fn = mysqli_real_escape_string( $dbc, trim( $_POST[ 'title' ] ) ) ; }
+  { $ti = mysqli_real_escape_string( $dbc, trim( $_POST[ 'title' ] ) ) ; }
+  
 
   # Check for a first name.
   if ( empty( $_POST[ 'first_name' ] ) )
@@ -31,32 +31,20 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   { $errors[] = 'Enter your last name.' ; }
   else
   { $ln = mysqli_real_escape_string( $dbc, trim( $_POST[ 'last_name' ] ) ) ; }
+  
+  
+  # Check for a date of birth.
+  if (empty( $_POST[ 'dob' ] ) )
+  { $errors[] = 'Enter your date of birth.' ; }
+  else
+  { $dob = mysqli_real_escape_string( $dbc, trim( $_POST[ 'dob' ] ) ) ; }
 
   # Check for an email address:
   if ( empty( $_POST[ 'email' ] ) )
   { $errors[] = 'Enter your email address.'; }
   else
   { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'email' ] ) ) ; }
-  
-  # Check for a postal address:
-  if ( empty( $_POST[ 'address1' ] ) )
-  { $errors[] = 'Enter your postal address.'; }
-  else
-  { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'address1' ] ) ) ; }
-  
-  # Check for a postal town:
-  if ( empty( $_POST[ 'town' ] ) )
-  { $errors[] = 'Enter your postal town.'; }
-  else
-  { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'town' ] ) ) ; }
-  
 
-  # Check for a postal postcode:
-  if ( empty( $_POST[ 'postcode' ] ) )
-  { $errors[] = 'Enter your postcode.'; }
-  else
-  { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'postcode' ] ) ) ; }
-  
   # Check for a password and matching input passwords.
   if ( !empty($_POST[ 'pass1' ] ) )
   {
@@ -78,7 +66,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   # On success register user inserting into 'users' database table.
   if ( empty( $errors ) ) 
   {
-    $q = "INSERT INTO users (first_name, last_name, email, pass, reg_date) VALUES ('$fn', '$ln', '$e', SHA1('$p'), NOW() )";
+    $q = "INSERT INTO users (first_name, last_name, dob, email, pass, reg_date) VALUES ('$ti', '$fn', '$ln', '$dob', '$e', '$ad' '$to', '$po', SHA1('$p'), NOW() )";
     $r = @mysqli_query ( $dbc, $q ) ;
     if ($r)
     { echo '<h1>Registered!</h1><p>You are now registered.</p><p><a href="login.php">Login</a></p>'; }
@@ -106,6 +94,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 <!-- Display body section with sticky form. -->
 <h1>Register</h1>
 <form action="register.php" method="post">
+<p>Title:<input type="text" name="title" size="10" value="<?php if (isset($_POST['title'])) echo $_POST['title']; ?>"></p>
 <p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
 Last Name: <input type="text" name="last_name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
 <p>Email Address: <input type="text" name="email" size="50" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
