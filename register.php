@@ -3,6 +3,7 @@
 # Set page title and display header section.
 $page_title = 'Register' ;
 include ( 'includes/header.html' ) ;
+include ( 'includes/menu.html' ) ;
 
 # Check form submitted.
 if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
@@ -12,6 +13,12 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   
   # Initialize an error array.
   $errors = array();
+  
+  # Check for a title name.
+  if ( empty( $_POST[ 'Title' ] ) )
+  { $errors[] = 'Select preferred title.' ; }
+  else
+  { $fn = mysqli_real_escape_string( $dbc, trim( $_POST[ 'title' ] ) ) ; }
 
   # Check for a first name.
   if ( empty( $_POST[ 'first_name' ] ) )
@@ -30,7 +37,26 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   { $errors[] = 'Enter your email address.'; }
   else
   { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'email' ] ) ) ; }
+  
+  # Check for a postal address:
+  if ( empty( $_POST[ 'address1' ] ) )
+  { $errors[] = 'Enter your postal address.'; }
+  else
+  { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'address1' ] ) ) ; }
+  
+  # Check for a postal town:
+  if ( empty( $_POST[ 'town' ] ) )
+  { $errors[] = 'Enter your postal town.'; }
+  else
+  { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'town' ] ) ) ; }
+  
 
+  # Check for a postal postcode:
+  if ( empty( $_POST[ 'postcode' ] ) )
+  { $errors[] = 'Enter your postcode.'; }
+  else
+  { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'postcode' ] ) ) ; }
+  
   # Check for a password and matching input passwords.
   if ( !empty($_POST[ 'pass1' ] ) )
   {
