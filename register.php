@@ -13,6 +13,11 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     # Initialize an error array.
     $errors = array();
     
+    
+    # Check for a title
+    { $pti = mysqli_real_escape_string( $dbc, trim( $_POST[ 'p_title' ] ) ) ; }
+    
+    
     # Check for a first name.
     if ( empty( $_POST[ 'first_name' ] ) )
     { $errors[] = 'Enter your first name.' ; }
@@ -24,6 +29,12 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     { $errors[] = 'Enter your last name.' ; }
     else
     { $ln = mysqli_real_escape_string( $dbc, trim( $_POST[ 'last_name' ] ) ) ; }
+    
+    # Check for a last name.
+    if (empty( $_POST[ 'dob' ] ) )
+    { $errors[] = 'Enter your DOB.' ; }
+    else
+    { $dob = mysqli_real_escape_string( $dbc, trim( $_POST[ 'dob' ] ) ) ; }
     
     # Check for an email address:
     if ( empty( $_POST[ 'email' ] ) )
@@ -72,7 +83,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     {
         
         #ensure that the database table field and the relevant form variable are entered in this section
-        $q = "INSERT INTO users (first_name, last_name, email, address_1, town, postcode, pass, reg_date) VALUES ('$fn', '$ln', '$e', '$ad', '$tw', '$pc', SHA1('$p'), NOW() )";
+        $q = "INSERT INTO users (p_title, first_name, last_name, dob, email, address_1, town, postcode, pass, reg_date) VALUES ('$pti', '$fn', '$ln', '$dob', '$e', '$ad', '$tw', '$pc', SHA1('$p'), NOW() )";
         $r = @mysqli_query ( $dbc, $q ) ;
         if ($r)
         { echo '<h1>Great News!</h1><p>You have successfully registered</p><p><a href="login.php">Login</a></p>'; }
@@ -102,6 +113,16 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 <form action="register.php" method="post">
 <p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
 Last Name: <input type="text" name="last_name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
+
+<!-- test title form field added -->
+<p><label>Title</label>Male<input type="radio" name="p_title" size="60" value="<?php if (isset($_POST['p_title'])) echo $_POST['p_title']; ?>"></p>
+Female<input type="radio" name="p_title" size="60" value="<?php if (isset($_POST['p_title'])) echo $_POST['p_title']; ?>"></p>
+
+
+<!-- address form field added -->
+<p>Date of Birth: <input type="date" name="dob" size="60" value="<?php if (isset($_POST['dob'])) echo $_POST['dob']; ?>"></p>
+
+
 <p>Email Address: <input type="text" name="email" size="50" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
 
 <!-- address form field added -->
