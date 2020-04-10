@@ -83,6 +83,8 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 <p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
 Last Name: <input type="text" name="last_name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
 <p>Email Address: <input type="text" name="email" size="50" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
+
+<!-- address form field added -->
 <p>Address: <input type="text" name="address_1" size="60" value="<?php if (isset($_POST['address_1'])) echo $_POST['address_1']; ?>"></p>
 <p>Password: <input type="password" name="pass1" size="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>" >
 Confirm Password: <input type="password" name="pass2" size="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>"></p>
