@@ -55,7 +55,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
         $q = "INSERT INTO users (first_name, last_name, email, pass, reg_date) VALUES ('$fn', '$ln', '$e', SHA1('$p'), NOW() )";
         $r = @mysqli_query ( $dbc, $q ) ;
         if ($r)
-        { echo '<h1>Registered!</h1><p>You are now registered.</p><p><a href="login.php">Login</a></p>'; }
+        { echo '<h1>Registered!</h1><p>You have successfully registered</p><p><a href="login.php">Login</a></p>'; }
         
         # Close database connection.
         mysqli_close($dbc);
