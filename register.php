@@ -31,6 +31,12 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     else
     { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'email' ] ) ) ; }
     
+    # Check for an email address:
+    if ( empty( $_POST[ 'address_1' ] ) )
+    { $errors[] = 'Enter your address.'; }
+    else
+    { $ad = mysqli_real_escape_string( $dbc, trim( $_POST[ 'address_1' ] ) ) ; }
+    
     # Check for a password and matching input passwords.
     if ( !empty($_POST[ 'pass1' ] ) )
     {
@@ -52,7 +58,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     # On success register user inserting into 'users' database table.
     if ( empty( $errors ) )
     {
-        $q = "INSERT INTO users (first_name, last_name, email, pass, reg_date) VALUES ('$fn', '$ln', '$e', SHA1('$p'), NOW() )";
+        $q = "INSERT INTO users (first_name, last_name, email, address_1, pass, reg_date) VALUES ('$fn', '$ln', '$e', '$ad', SHA1('$p'), NOW() )";
         $r = @mysqli_query ( $dbc, $q ) ;
         if ($r)
         { echo '<h1>Registered!</h1><p>You have successfully registered</p><p><a href="login.php">Login</a></p>'; }
