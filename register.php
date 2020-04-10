@@ -43,6 +43,12 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     else
     { $tw = mysqli_real_escape_string( $dbc, trim( $_POST[ 'town' ] ) ) ; }
     
+    # Check for a postcode:
+    if ( empty( $_POST[ 'postcode' ] ) )
+    { $errors[] = 'Enter your postcode.'; }
+    else
+    { $pc = mysqli_real_escape_string( $dbc, trim( $_POST[ 'postcode' ] ) ) ; }
+    
     # Check for a password and matching input passwords.
     if ( !empty($_POST[ 'pass1' ] ) )
     {
@@ -66,7 +72,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     {
         
         #ensure that the database table field and the relevant form variable are entered in this section
-        $q = "INSERT INTO users (first_name, last_name, email, address_1, town, pass, reg_date) VALUES ('$fn', '$ln', '$e', '$ad', '$tw', SHA1('$p'), NOW() )";
+        $q = "INSERT INTO users (first_name, last_name, email, address_1, town, postcode, pass, reg_date) VALUES ('$fn', '$ln', '$e', '$ad', '$tw', '$pc', SHA1('$p'), NOW() )";
         $r = @mysqli_query ( $dbc, $q ) ;
         if ($r)
         { echo '<h1>Great News!</h1><p>You have successfully registered</p><p><a href="login.php">Login</a></p>'; }
@@ -103,6 +109,9 @@ Last Name: <input type="text" name="last_name" size="20" value="<?php if (isset(
 
 <!-- town form field added -->
 <p>Town: <input type="text" name="town" size="60" value="<?php if (isset($_POST['town'])) echo $_POST['town']; ?>"></p>
+
+<!-- town form field added -->
+<p>Postcode: <input type="text" name="postcode" size="8" value="<?php if (isset($_POST['postcode'])) echo $_POST['postcode']; ?>"></p>
 
 <p>Password: <input type="password" name="pass1" size="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>" >
 Confirm Password: <input type="password" name="pass2" size="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>"></p>
