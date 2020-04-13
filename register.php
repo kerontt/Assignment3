@@ -33,11 +33,22 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     else
     { $ln = mysqli_real_escape_string( $dbc, trim( $_POST[ 'last_name' ] ) ) ; }
     
-    # Check for a last name.
-    if (empty( $_POST[ 'dob' ] ) )
-    { $errors[] = 'Enter your DOB.' ; }
-    else
-    { $dob = mysqli_real_escape_string( $dbc, trim( $_POST[ 'dob' ] ) ) ; }
+    # DATE OF BIRTH VALIDATION.
+        #If not empty.
+        if (empty( $_POST[ 'dob' ] ) )
+        { $errors[] = 'Enter your DOB.' ; }
+    
+        # Check user is older than 18 years old.
+        $currentdate = date("d-m-y");
+        $userdob = $_POST[ 'dob' ];
+        $diff = abs(strtotime($userdob) - strtotime($currentdate));
+        $years = floor($diff / (365*60*60*24));
+        If ( $years < 18)
+        { $errors[] = 'You are too young to register' ; }
+        else
+        { $p = mysqli_real_escape_string( $dbc, trim( $_POST[ 'pass1' ] ) ) ; }
+    
+   
     
     # Check for an email address:
     if ( empty( $_POST[ 'email' ] ) )
@@ -45,11 +56,15 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     else
     { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'email' ] ) ) ; }
     
+    
+    
     # Check for a postal address:
     if ( empty( $_POST[ 'address_1' ] ) )
     { $errors[] = 'Enter your address.'; }
     else
     { $ad = mysqli_real_escape_string( $dbc, trim( $_POST[ 'address_1' ] ) ) ; }
+    
+    
     
     # Check for a postal address:
     if ( empty( $_POST[ 'town' ] ) )
@@ -57,11 +72,15 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     else
     { $tw = mysqli_real_escape_string( $dbc, trim( $_POST[ 'town' ] ) ) ; }
     
+    
+    
     # Check for a postcode:
     if ( empty( $_POST[ 'postcode' ] ) )
     { $errors[] = 'Enter your postcode.'; }
     else
     { $pc = mysqli_real_escape_string( $dbc, trim( $_POST[ 'postcode' ] ) ) ; }
+    
+    
     
     # Check for a password and matching input passwords.
     if ( !empty($_POST[ 'pass1' ] ) )
@@ -73,6 +92,9 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     }
     else { $errors[] = 'Enter your password.' ; }
     
+   
+   
+    
     # Check if email address already registered.
     if ( empty( $errors ) )
     {
@@ -80,6 +102,10 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
         $r = @mysqli_query ( $dbc, $q ) ;
         if ( mysqli_num_rows( $r ) != 0 ) $errors[] = 'Email address already registered. <a href="login.php">Login</a>' ;
     }
+    
+  
+    
+    
     
     # On successful register user 'Insert' into 'users' database table.
     if ( empty( $errors ) )
@@ -112,9 +138,11 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 ?>
 
 <!-- Use css from style sheet> -->
-<div class="container">
-<div Class="form">
+<div class="contain">
+<div Class="xxxx">
+
 <!-- Display body section with sticky form. -->
+<br>
 <h1>Register</h1>
 <form action="register.php" method="post">
 
@@ -149,6 +177,8 @@ Confirm Password: <input type="password" name="pass2" size="20" value="<?php if 
 
 </div>
 </div>
+
+<br>
 
 <?php 
 
