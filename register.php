@@ -1,3 +1,5 @@
+<style></style>
+
 <?php # DISPLAY COMPLETE REGISTRATION PAGE.
 
 # Set page title and display header section.
@@ -109,14 +111,17 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 }
 ?>
 
+<!-- Use css from style sheet> -->
+<div class="container">
+<div Class="form">
 <!-- Display body section with sticky form. -->
 <h1>Register</h1>
 <form action="register.php" method="post">
 
 
 <!-- Title form field added -->
-<p><label>Title: </label><br>Miss <input type="radio" name="p_title" size="60" value="Miss"></p><p>
-Mr <input type="radio" name="p_title" size="60" value="Mr"></p><p>Mrs <input type="radio" name="p_title" size="60" value="Mrs"></p><p>Other <input type="radio" name="p_title" size="60" value="Other"></p>
+<p><label>Title: </label><br>Miss. <input type="radio" name="p_title" size="60" value="Miss">
+Mr. <input type="radio" name="p_title" size="60" value="Mr"> Mrs. <input type="radio" name="p_title" size="60" value="Mrs"> Other. <input type="radio" name="p_title" size="60" value="Other"></p>
 
 <p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
 Last Name: <input type="text" name="last_name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
@@ -141,6 +146,9 @@ Last Name: <input type="text" name="last_name" size="20" value="<?php if (isset(
 Confirm Password: <input type="password" name="pass2" size="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>"></p>
 <p><input type="submit" value="Register"></p>
 </form>
+
+</div>
+</div>
 
 <?php 
 
