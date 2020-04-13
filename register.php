@@ -112,12 +112,14 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 <!-- Display body section with sticky form. -->
 <h1>Register</h1>
 <form action="register.php" method="post">
-<p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
-Last Name: <input type="text" name="last_name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
 
-<!-- test title form field added -->
+
+<!-- Title form field added -->
 <p><label>Title: </label><br>Miss <input type="radio" name="p_title" size="60" value="Miss"></p><p>
 Mr <input type="radio" name="p_title" size="60" value="Mr"></p><p>Mrs <input type="radio" name="p_title" size="60" value="Mrs"></p><p>Other <input type="radio" name="p_title" size="60" value="Other"></p>
+
+<p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
+Last Name: <input type="text" name="last_name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
 
 
 <!-- address form field added -->
