@@ -68,7 +68,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
         # Check if email address is valid i.e. contains no spaces and @ sign.
         $email = $_POST[ 'email' ];
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors[] = "Invalid email format: try including an '@' sign"; 
+            $errors[] = "Invalid email format: check the '@' sign and for any spaces."; 
         }
         else
         { $e = mysqli_real_escape_string( $dbc, trim( $_POST[ 'email' ] ) ) ; }
