@@ -116,8 +116,8 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 Last Name: <input type="text" name="last_name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
 
 <!-- test title form field added -->
-<p><label>Title</label>Male<input type="radio" name="p_title" size="60" value="<?php if (isset($_POST['p_title'])) echo $_POST['p_title']; ?>"></p>
-Female<input type="radio" name="p_title" size="60" value="<?php if (isset($_POST['p_title'])) echo $_POST['p_title']; ?>"></p>
+<p><label>Title: </label><br>Miss <input type="radio" name="p_title" size="60" value="Miss"></p><p>
+Mr <input type="radio" name="p_title" size="60" value="Mr"></p><p>Mrs <input type="radio" name="p_title" size="60" value="Mrs"></p><p>Other <input type="radio" name="p_title" size="60" value="Other"></p>
 
 
 <!-- address form field added -->
