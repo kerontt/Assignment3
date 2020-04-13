@@ -78,14 +78,24 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     # Check for a postal address:
     if ( empty( $_POST[ 'address_1' ] ) )
     { $errors[] = 'Enter your address.'; }
+    $address1 = $_POST[ 'address_1' ];
+    $add_len = strlen($address1);
+    if (!preg_match('/^[a-z0-9- ]+$/i', $address1)) 
+    {
+        $errors[] = "Invalid address format: address either too short or contains invalid characters";
+    } 
     else
     { $ad = mysqli_real_escape_string( $dbc, trim( $_POST[ 'address_1' ] ) ) ; }
     
     
     
-    # Check for a postal address:
+    # Check for a town:
     if ( empty( $_POST[ 'town' ] ) )
     { $errors[] = 'Enter your town.'; }
+    $town = $_POST[ 'town' ];
+    if (!preg_match('/^(?:\\d+ [a-zA-Z ]+, ){2}[a-zA-Z ]+$/', $town)) {
+        $error[] = "The town field is not valid: only letters and spaces are allowed";
+    }
     else
     { $tw = mysqli_real_escape_string( $dbc, trim( $_POST[ 'town' ] ) ) ; }
     
@@ -144,7 +154,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     # Or report errors.
     else
     {
-        echo '<h1>Error!</h1><p id="err_msg">The following error(s) occurred:<br>' ;
+        echo '<h1>Something went wrong!</h1><p id="err_msg">The following error(s) occurred:<br>' ;
         foreach ( $errors as $msg )
         { echo " - $msg<br>" ; }
         echo 'Please try again.</p>';
