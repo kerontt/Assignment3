@@ -3,6 +3,7 @@
 # Set page title and display header section.
 $page_title = 'Register' ;
 include ( 'includes/header.html' ) ;
+include ( 'includes/menu.html' ) ;
 
 # Check form submitted.
 if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
