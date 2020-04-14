@@ -57,7 +57,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
         If ( $years < 18)
         { $errors[] = 'You are too young to register' ; }
         else
-        { $p = mysqli_real_escape_string( $dbc, trim( $_POST[ 'pass1' ] ) ) ; }
+        { $dob = mysqli_real_escape_string( $dbc, trim( $_POST[ 'dob' ] ) ) ; }
     
    
         #EMAIL VALIDATION
@@ -198,36 +198,23 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 }
 ?>
 
-
+<!-- Use css from style sheet> -->
+<div class="contain">
+<div Class="xxxx">
 
 <!-- Display body section with sticky form. -->
 <br>
 <h1>Register</h1>
-
 <form action="register.php" method="post">
 
-<div class="form-group">
+
 <!-- Title form field added -->
 <p><label>Title: </label><br>Miss. <input type="radio" name="p_title" size="60" value="Miss">
 Mr. <input type="radio" name="p_title" size="60" value="Mr"> Mrs. <input type="radio" name="p_title" size="60" value="Mrs"> Other. <input type="radio" name="p_title" size="60" value="Other"></p>
-</div>
 
-<div class="form-group">
-    <label for="TitleFormControlSelect1">Title 2</label>
-    <select class="form-control" id="TitleFormControlSelect1">
-      <option>Dr</option>
-       <option>Miss</option>
-      <option>Mr</option>
-      <option>Mrs</option>
-      <option>Other</option>
-    </select>
-  </div>
-
-
-<div class="form-group">
 <p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
-Last Name: <input type="text" name="last_name" placeholder="last/family name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
-</div>
+Last Name: <input type="text" name="last_name" placeholder="Last family name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
+
 
 <!-- address form field added -->
 <p>Date of Birth: <input type="date" name="dob" size="60" value="<?php if (isset($_POST['dob'])) echo $_POST['dob']; ?>"></p>
@@ -236,7 +223,7 @@ Last Name: <input type="text" name="last_name" placeholder="last/family name" si
 <p>Email Address: <input type="text" name="email" placeholder="e.g. jane_smith@contoso.com" size="50" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
 
 <!-- address form field added -->
-<p>Address: <input type="text" name="address_1" size="60" placeholder="house number or building name, street name" value="<?php if (isset($_POST['address_1'])) echo $_POST['address_1']; ?>"></p>
+<p>Address: <input type="text" name="address_1" size="60" placeholder="House number or building name, street name" value="<?php if (isset($_POST['address_1'])) echo $_POST['address_1']; ?>"></p>
 
 <!-- town form field added -->
 <p>Town: <input type="text" name="town" size="60" value="<?php if (isset($_POST['town'])) echo $_POST['town']; ?>"></p>
@@ -247,11 +234,10 @@ Last Name: <input type="text" name="last_name" placeholder="last/family name" si
 <p>Password: <input type="password" name="pass1" size="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>" >
 Confirm Password: <input type="password" name="pass2" size="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>"></p>
 <p><input type="submit" value="Register"></p>
-
-</div>
-
 </form>
 
+</div>
+</div>
 
 <br>
 
