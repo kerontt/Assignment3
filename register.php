@@ -210,6 +210,18 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 <!-- Title form field added -->
 <p><label>Title: </label><br>Miss. <input type="radio" name="p_title" size="60" value="Miss">
 Mr. <input type="radio" name="p_title" size="60" value="Mr"> Mrs. <input type="radio" name="p_title" size="60" value="Mrs"> Other. <input type="radio" name="p_title" size="60" value="Other"></p>
+</div>
+
+<div class="form-group">
+    <label for="TitleFormControlSelect1">Title 2</label>
+    <select class="form-control" id="TitleFormControlSelect1">
+      <option>Dr</option>
+       <option>Miss</option>
+      <option>Mr</option>
+      <option>Mrs</option>
+      <option>Other</option>
+    </select>
+  </div>
 
 
 <div class="form-group">
