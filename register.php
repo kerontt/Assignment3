@@ -98,7 +98,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     
     if (!preg_match('/^(?:\\d+ [a-zA-Z ]+, ){2}[a-zA-Z ]+$/', $town) and $town_len < 5) 
     {
-        $errors[] = "The town field is not valid: only letters and spaces are allowed";
+        $error[] = "The town field is not valid: only letters and spaces are allowed";
     }
     else
     { $tw = mysqli_real_escape_string( $dbc, trim( $_POST[ 'town' ] ) ) ; }
@@ -120,8 +120,48 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     
     
     
-
+    # Check for a password and matching input passwords.
+    if ( !empty($_POST[ 'pass1' ] ) )
+    {
+        if ( $_POST[ 'pass1' ] != $_POST[ 'pass2' ] )
+        { 
+            $errors[] = "Passwords do not match." ; 
+        }
+        $pass1 = $_POST[ 'pass1' ];
+        $ucaseChar = preg_match('@[A-Z]@', $pass1);
+        $lcaseChar = preg_match('@[a-z]@', $pass1);
+        $numChar    = preg_match('@[0-9]@', $pass1);
+        $spChars = preg_match('@[^\w]@', $pass1);
+        $pass_len = strlen($pass1);
+        
+        if (!$ucaseChar || !$lcaseChar || !$numChar || !$spChars || $pass_len < 8)
+        {
+            $errors[] = "Invalid Password: Does not meet required complexity. Try a mix of special, upper case, lower case and numeric characters";
+        
+        }
+        else
+        { 
+            $p = mysqli_real_escape_string( $dbc, trim( $_POST[ 'pass1' ] ) ) ; 
+        }
+        }
+        else { $errors[] = 'Enter your password.' ; }
+        
+        
+        # Check for a password and matching input passwords.
+        if ( !empty($_POST[ 'pass1' ] ) )
+        {
+            if ( $_POST[ 'pass1' ] != $_POST[ 'pass2' ] )
+            { $errors[] = 'Passwords do not match.' ; }
+            else
+            { $p = mysqli_real_escape_string( $dbc, trim( $_POST[ 'pass1' ] ) ) ; }
+        }
+       
+        
    
+   
+  
+    
+  
     
     # Check if email address already registered.
     if ( empty( $errors ) )
