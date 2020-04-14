@@ -80,7 +80,8 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     { $errors[] = 'Enter your address.'; }
     $address1 = $_POST[ 'address_1' ];
     $add_len = strlen($address1);
-    if (!preg_match('/^[a-z0-9- ]+$/i', $address1)) 
+    
+    if ((!preg_match('/^(?:\\d+ [a-zA-Z ]+, ){2}[a-zA-Z ]+$/', $address1) and $add_len < 5)) 
     {
         $errors[] = "Invalid address format: address either too short or contains invalid characters";
     } 
@@ -93,8 +94,11 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     if ( empty( $_POST[ 'town' ] ) )
     { $errors[] = 'Enter your town.'; }
     $town = $_POST[ 'town' ];
-    if (!preg_match('/^(?:\\d+ [a-zA-Z ]+, ){2}[a-zA-Z ]+$/', $town)) {
-        $error[] = "The town field is not valid: only letters and spaces are allowed";
+    $town_len = strlen($town);
+    
+    if (!preg_match('/^(?:\\d+ [a-zA-Z ]+, ){2}[a-zA-Z ]+$/', $town) and $town_len < 5) 
+    {
+        $errors[] = "The town field is not valid: only letters and spaces are allowed";
     }
     else
     { $tw = mysqli_real_escape_string( $dbc, trim( $_POST[ 'town' ] ) ) ; }
@@ -104,22 +108,19 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     # Check for a postcode:
     if ( empty( $_POST[ 'postcode' ] ) )
     { $errors[] = 'Enter your postcode.'; }
+    $postcode = $_POST[ 'postcode' ];
+    $postcode_len = strlen($postcode);
+    
+    if ((!preg_match('/^(?:\\d+ [a-zA-Z ]+, ){2}[a-zA-Z ]+$/', $postcode) and $postcode_len < 5)) 
+    {  
+        $errors[] = "The postcode field is not valid: e.g. W3 1RJ, NW10 4RX";
+    }
     else
     { $pc = mysqli_real_escape_string( $dbc, trim( $_POST[ 'postcode' ] ) ) ; }
     
     
     
-    # Check for a password and matching input passwords.
-    if ( !empty($_POST[ 'pass1' ] ) )
-    {
-        if ( $_POST[ 'pass1' ] != $_POST[ 'pass2' ] )
-        { $errors[] = 'Passwords do not match.' ; }
-        else
-        { $p = mysqli_real_escape_string( $dbc, trim( $_POST[ 'pass1' ] ) ) ; }
-    }
-    else { $errors[] = 'Enter your password.' ; }
-    
-   
+
    
     
     # Check if email address already registered.
