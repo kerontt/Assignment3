@@ -199,8 +199,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 ?>
 
 <!-- Use css from style sheet> -->
-<div class="contain">
-<div Class="xxxx">
+ <div class="form-group">
 
 <!-- Display body section with sticky form. -->
 <br>
@@ -211,6 +210,17 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 <!-- Title form field added -->
 <p><label>Title: </label><br>Miss. <input type="radio" name="p_title" size="60" value="Miss">
 Mr. <input type="radio" name="p_title" size="60" value="Mr"> Mrs. <input type="radio" name="p_title" size="60" value="Mrs"> Other. <input type="radio" name="p_title" size="60" value="Other"></p>
+
+<label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>Dr</option>
+      <option>Miss</option>
+      <option>Mr</option>
+      <option>Mrs</option>
+      <option>Other</option>
+      
+    </select>
+
 
 <p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
 Last Name: <input type="text" name="last_name" placeholder="Last family name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
@@ -236,7 +246,6 @@ Confirm Password: <input type="password" name="pass2" size="20" value="<?php if 
 <p><input type="submit" value="Register"></p>
 </form>
 
-</div>
 </div>
 
 <br>
