@@ -199,6 +199,9 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 ?>
 
 <!-- Use css from style sheet> -->
+
+
+ <div class="container">
  <div class="form-group">
 
 <!-- Display body section with sticky form. -->
@@ -208,11 +211,9 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 
 
 <!-- Title form field added -->
-<p><label>Title: </label><br>Miss. <input type="radio" name="p_title" size="60" value="Miss">
-Mr. <input type="radio" name="p_title" size="60" value="Mr"> Mrs. <input type="radio" name="p_title" size="60" value="Mrs"> Other. <input type="radio" name="p_title" size="60" value="Other"></p>
 
-<label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+<label for="TitleFormControlSelect1">Title: </label>
+    <select class="form-control" id="TitleFormControlSelect1" name="p_title">
       <option>Dr</option>
       <option>Miss</option>
       <option>Mr</option>
@@ -220,34 +221,60 @@ Mr. <input type="radio" name="p_title" size="60" value="Mr"> Mrs. <input type="r
       <option>Other</option>
       
     </select>
+<br>
 
-
+<div class="form-row">
+<div class="form-group col-md-6">
 <p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
+</div>
+<div class="form-group col-md-6">
 Last Name: <input type="text" name="last_name" placeholder="Last family name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
+</div>
+</div>
 
-
+<div class="form-row">
+<div class="form-group col-md-6">
 <!-- address form field added -->
 <p>Date of Birth: <input type="date" name="dob" size="60" value="<?php if (isset($_POST['dob'])) echo $_POST['dob']; ?>"></p>
+</div>
 
-
+<div class="form-group col-md-6">
 <p>Email Address: <input type="text" name="email" placeholder="e.g. jane_smith@contoso.com" size="50" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
+</div>
+</div>
 
+ <div class="form-group">
 <!-- address form field added -->
 <p>Address: <input type="text" name="address_1" size="60" placeholder="House number or building name, street name" value="<?php if (isset($_POST['address_1'])) echo $_POST['address_1']; ?>"></p>
+</div>
 
+<div class="form-row">
+<div class="form-group col-md-6">
 <!-- town form field added -->
 <p>Town: <input type="text" name="town" size="60" value="<?php if (isset($_POST['town'])) echo $_POST['town']; ?>"></p>
+</div>
+</div>
 
+<div class="form-group col-md-6">
 <!-- town form field added -->
 <p>Postcode: <input type="text" name="postcode" placeholder="e.g. AL10 9EU" size="12" value="<?php if (isset($_POST['postcode'])) echo $_POST['postcode']; ?>"></p>
+</div>
 
+
+<div class="form-row">
+<div class="form-group col-md-6">
 <p>Password: <input type="password" name="pass1" size="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>" >
+</div>
+<div class="form-group col-md-6">
 Confirm Password: <input type="password" name="pass2" size="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>"></p>
 <p><input type="submit" value="Register"></p>
+</div>
+</div>
 </form>
 
 </div>
 
+</div>
 <br>
 
 <?php 
