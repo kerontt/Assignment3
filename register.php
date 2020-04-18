@@ -277,6 +277,7 @@ Confirm Password: <input type="password" name="pass2" size="20" value="<?php if 
 </div>
 <br>
 
+
 <?php 
 
 # Display footer section.
