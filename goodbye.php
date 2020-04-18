@@ -9,6 +9,7 @@ if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load()
 # Set page title and display header section.
 $page_title = 'Goodbye' ;
 include ( 'includes/header.html' ) ;
+include ( 'includes/menu.html');
 
 # Clear existing variables.
 $_SESSION = array() ;
@@ -24,4 +25,3 @@ echo '<h1>Goodbye!</h1><p>You are now logged out.</p><p><a href="login.php">Logi
 include ( 'includes/footer.html' ) ;
 
 ?>
-window.location.replace("https://www.google.com/");
