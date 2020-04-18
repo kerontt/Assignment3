@@ -32,14 +32,28 @@ if ( isset( $errors ) && !empty( $errors ) )
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Welcome back!</h3>
+            
 
 <!-- Display body section. -->
-<h1>Login</h1>
+  <h3 class="login-heading mb-4">Login</h3>
 <form action="login_action.php" method="post">
-<p>Email Address: <input type="text" name="email"> </p>
-<p>Password: <input type="password" name="pass"></p>
-<p><input type="submit" value="Login" ></p>
+<div class="form-label-group">
+ <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required autofocus>
+
+</div>
+
+<div class="form-label-group">
+                  <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required>
+              
+</div>
+
+<div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Remember password</label>
+                </div>
+
+<button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" value="Login">Sign in</button>
+
 </form>
 
             </div>
