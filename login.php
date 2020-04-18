@@ -48,6 +48,7 @@ include ( 'includes/menu.html' ) ;
 
 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" value="Login">Sign in</button>
 
+<a href="register.php">Register</a>
 </form>
 <?php 
 
