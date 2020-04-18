@@ -9,6 +9,7 @@ else
 //for mamp users its "root","root" rather than "root",""
 //connection successfully tested on 6:4:2020 @2246hrs
 $dbc = mysqli_connect("localhost:8889", "root", "root", "site_db") 
+
 OR die(mysqli_connect_error());
 }
 
