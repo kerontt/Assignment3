@@ -14,7 +14,7 @@
 # Set page title and display header section.
 $page_title = 'Login' ;
 include ( 'includes/header.html' ) ;
-include ( 'includes/header.html' ) ;
+include ( 'includes/menu.html' ) ;
 
 # Display any error messages if present.
 if ( isset( $errors ) && !empty( $errors ) )
