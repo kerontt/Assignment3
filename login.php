@@ -9,21 +9,13 @@
 </body>
 
 
-<!-- Start of Php --><?php # DISPLAY COMPLETE LOGIN PAGE.
+<!-- Start of Php -->
+<?php # DISPLAY COMPLETE LOGIN PAGE.
 
-# Set page title and display header section.
+# Set page title and include header/menu section.
 $page_title = 'Login' ;
 include ( 'includes/header.html' ) ;
 include ( 'includes/menu.html' ) ;
-
-
-# Display any error messages if present.
-if ( isset( $errors ) && !empty( $errors ) )
-{
- echo '<p id="err_msg">Oops! Something went wrong!:<br>' ;
- foreach ( $errors as $msg ) { echo " - $msg<br>" ; }
- echo 'Please try again or <a href="register.php">Register</a></p>' ;
-}
 ?>
 <div class="container-fluid">
   <div class="row no-gutter">
@@ -35,7 +27,7 @@ if ( isset( $errors ) && !empty( $errors ) )
             <div class="col-md-9 col-lg-8 mx-auto">
             
 
-<!-- Display body section. -->
+<!-- Display form body section. -->
   <h3 class="login-heading mb-4">Login</h3>
 <form action="login_action.php" method="post">
 <div class="form-label-group">
@@ -59,6 +51,7 @@ if ( isset( $errors ) && !empty( $errors ) )
 </form>
 <?php 
 
+
 # Display any error messages if present.
 if ( isset( $errors ) && !empty( $errors ) )
 {
@@ -73,7 +66,6 @@ if ( isset( $errors ) && !empty( $errors ) )
       </div>
     </div>
   </div>
-</div>
 <?php 
 
 
