@@ -30,12 +30,15 @@ $r = mysqli_query( $dbc, $q ) ;
         {
             $thisItem = "item_name";
             $thisItemDesc = "item_desc";
+            $thisItemDescLg = "item_desc_lg";
             $thisItemImage = "item_img";
+            $thisitemImage2 = "item_img2";
+            $thisitemImage3 = "item_img3";
             $thisItemPrice = "item_price";
             $thisItemID = "item_id";
             
             
-            
+            echo '<div class="container">';
             echo '<div class="col-lg-4 col-md-6 mb-4"><strong>' . $row[$thisItem] .'</strong><br><span style="font-size:smaller">'. $row[$thisItemDesc] . '</span><br><div class="row"><a href="detail.php?id='.$row[$thisItemID].'"><img class="thumbnail" src='. $row[$thisItemImage].'></a><div class="card-body"><br>$' . $row[$thisItemPrice] . '<br><a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" role="button">Add To Cart</a><br></div></div></div>';
             
             
