@@ -15,7 +15,11 @@ include ( 'includes/menu.html' ) ;
 # Create navigation links.
 echo '<p><a href="../cart.php">View Cart</a> | <a href="../forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
 
-       
+# Display sort criteria.
+echo '<div class="container">';
+echo '<a href="shop_parsing.php?orderby=item_name&direction=ASC">Sort by Name (ascending)<br></a>';
+echo '<a href="shop_parsing.php?orderby=item_price&direction=ASC">Sort by Price (ascending)<br></a>';
+
  
 
 // index end
