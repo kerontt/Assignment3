@@ -1,12 +1,18 @@
 
 <!-- Index product heading end -->
 
+<head>
+
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    
+  
 
 
 <?php
 
 # Set page title and display header section.
-$page_title = "Details - $item_name" ;
+$page_title = 'Details - $item_name' ;
 include ( 'includes/header.html' ) ;
 include ( 'includes/menu.html' ) ;
 
@@ -32,14 +38,51 @@ $r = mysqli_query( $dbc, $q ) ;
             $thisItemDesc = "item_desc";
             $thisItemDescLg = "item_desc_lg";
             $thisItemImage = "item_img";
-            $thisitemImage2 = "item_img2";
-            $thisitemImage3 = "item_img3";
+            $thisItemImage2 = "item_img2";
+            $thisItemImage3 = "item_img3";
             $thisItemPrice = "item_price";
             $thisItemID = "item_id";
             
             
-            echo '<div class="container">';
-            echo '<div class="col-lg-4 col-md-6 mb-4"><strong>' . $row[$thisItem] .'</strong><br><span style="font-size:smaller">'. $row[$thisItemDesc] . '</span><br><div class="row"><a href="detail.php?id='.$row[$thisItemID].'"><img class="thumbnail" src='. $row[$thisItemImage].'></a><div class="card-body"><br>$' . $row[$thisItemPrice] . '<br><a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" role="button">Add To Cart</a><br></div></div></div>';
+            echo '<div class="container">
+	                   <div class="card">
+			                 <div class="container-fliud">
+	                               <div class="wrapper row">
+					                      
+        
+            
+<div class="preview-pic tab-content"><div class="tab-pane active" id="main-img"><img src='. $row[$thisItemImage].'> 
+</div>
+
+<ul class="preview-thumbnail nav nav-tabs">
+<li class="active"><a data-target="#pic-2" data-toggle="tab"><img src='. $row[$thisItemImage2] . '></a></li>
+<li><a data-target="#pic-3" data-toggle="tab"><img src='. $row[$thisItemImage3] . '></a></li>
+</ul>
+</div>             
+</div>			
+</div';
+    
+    echo
+					'<div class="details col-sm-6">
+						<h3 class="product-title">'. $row[$thisItem] . '</h3>
+                        </br>
+                        <p>
+                        <p class="product-description">'. $row[$thisItemDesc] . '</p>
+						<p class="product-description">'. $row[$thisItemDescLg] . '</p>
+						<h4 class="price">current price: <span>£'. $row[$thisItemPrice] . '</span></h4></div>';
+						echo 
+						'<div class="action">
+                        <a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" role="button">Add To Cart</a>							
+
+                     </div>    
+                     </div>                 
+			          </div>    
+                     </div>                 
+			        
+					  
+               </div>';
+            
+          
             
             
             
