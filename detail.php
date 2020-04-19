@@ -42,6 +42,7 @@ $r = mysqli_query( $dbc, $q ) ;
             $thisItemImage3 = "item_img3";
             $thisItemPrice = "item_price";
             $thisItemID = "item_id";
+            $thisItemDoc = "item_doc";
             
             
             echo '<div class="container">
@@ -69,7 +70,9 @@ $r = mysqli_query( $dbc, $q ) ;
                         <p>
                         <p class="product-description">'. $row[$thisItemDesc] . '</p>
 						<p class="product-description">'. $row[$thisItemDescLg] . '</p>
+                        <p class="product-description"><a href='. $row[$thisItemDoc] . '</p></a>
 						<h4 class="price">current price: <span>£'. $row[$thisItemPrice] . '</span></h4></div>';
+                        
 						echo 
 						'<div class="action">
                         <a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" role="button">Add To Cart</a>							
