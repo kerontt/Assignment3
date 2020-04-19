@@ -9,6 +9,7 @@ if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load()
 # Set page title and display header section.
 $page_title = 'Cart' ;
 include ( 'includes/header.html' ) ;
+include ('includes/menu.html' ) ;
 
 # Check if form has been submitted for update.
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
@@ -42,7 +43,11 @@ if (!empty($_SESSION['cart']))
   $r = mysqli_query ($dbc, $q);
 
   # Display body section with a form and a table.
-  echo '<form action="cart.php" method="post"><table><tr><th colspan="5">Items in your cart</th></tr><tr>';
+  echo '<form action="cart.php" method="post">
+<table>
+<tr>
+<th colspan="5">Items in your cart</th></tr>
+<tr>';
   while ($row = mysqli_fetch_array ($r, MYSQLI_ASSOC))
   {
     # Calculate sub-totals and grand total.
@@ -50,7 +55,10 @@ if (!empty($_SESSION['cart']))
     $total += $subtotal;
 
     # Display the row/s:
-    echo "<tr> <td>{$row['item_name']}</td> <td>{$row['item_desc']}</td>
+    echo 
+    
+    "<tr> 
+<td>{$row['item_name']}</td> <td>{$row['item_desc']}</td>
     <td><input type=\"text\" size=\"3\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\"></td>
     <td>@ {$row['item_price']} = </td> <td>".number_format ($subtotal, 2)."</td></tr>";
   }
@@ -59,7 +67,12 @@ if (!empty($_SESSION['cart']))
   mysqli_close($dbc); 
   
   # Display the total.
-  echo ' <tr><td colspan="5" style="text-align:right">Total = '.number_format($total,2).'</td></tr></table><input type="submit" name="submit" value="Update My Cart"></form>';
+  echo 
+  
+  ' <tr><td colspan="5" style="text-align:right">Total = '.number_format($total,2).'</td></tr>
+</table>
+
+<input type="submit" name="submit" value="Update My Cart"></form>';
 }
 else
 # Or display a message.
