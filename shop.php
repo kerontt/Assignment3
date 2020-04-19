@@ -41,7 +41,12 @@ if ( mysqli_num_rows( $r ) > 0 )
   echo '<div class="container">';
   while ( $row = mysqli_fetch_array( $r, MYSQLI_ASSOC ))
   {
-    echo '<div class="col-lg-4 col-md-6 mb-4"><strong>' . $row[$thisItem] .'</strong><br><span style="font-size:smaller">'. $row[$thisItemDesc] . '</span><br><div class="row"><a href="detail.php?id='.$row[$thisItemID].'"><img class="thumbnail" src='. $row[$thisItemImage].'></a><div class="card-body"><br>$' . $row[$thisItemPrice] . '<br><a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" role="button">Add To Cart</a><br></div></div></div>';
+    echo '<div class="col-lg-4 col-md-6 mb-4"><strong>' . $row[$thisItem] .'</strong><br><span style="font-size:smaller">'. $row[$thisItemDesc] . '</span><br>
+<div class="row"><a href="detail.php?id='.$row[$thisItemID].'">
+<img class="thumbnail" src='. $row[$thisItemImage].'></a>
+<div class="card-body"><br>$' . $row[$thisItemPrice] . '<br>
+<a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" role="button">Add To Cart</a><br>
+</div></div></div>';
   }
   ;
   echo '</div>';
