@@ -9,6 +9,7 @@ if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load()
 # Set page title and display header section.
 $page_title = 'Cart Addition' ;
 include ( 'includes/header.html' ) ;
+include ( 'includes/menu.html' ) ;
 
 # Get passed product id and assign it to a variable.
 if ( isset( $_GET['id'] ) ) $id = $_GET['id'] ; 
