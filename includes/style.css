@@ -17,11 +17,11 @@ Address {
 	}
 footer > p { 
 	
-	font-style: italic ; 
+	font-style: regular; 
 	background-color: #ffc126 ; 
 	color: #70179c; 
 	text-align:center; 
-	font-weight:bold; 
+	
 	}
 p#err_msg { 
 	color:#ff4a2c; 
