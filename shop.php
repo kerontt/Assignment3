@@ -39,14 +39,19 @@ if ( mysqli_num_rows( $r ) > 0 )
     $thisItemID = "item_id";
   # Display body section.
   echo '<div class="container">';
+
   while ( $row = mysqli_fetch_array( $r, MYSQLI_ASSOC ))
   {
-    echo '<div class="col-lg-4 col-md-6 mb-4"><strong>' . $row[$thisItem] .'</strong><br><span style="font-size:smaller">'. $row[$thisItemDesc] . '</span><br>
-<div class="row"><a href="detail.php?id='.$row[$thisItemID].'">
-<img class="thumbnail" src='. $row[$thisItemImage].'></a>
-<div class="card-body"><br>$' . $row[$thisItemPrice] . '<br>
-<a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" role="button">Add To Cart</a><br>
-</div></div></div>';
+  echo '<a href="detail.php?id='.$row[$thisItemID].'">';
+  echo '<div class="product"><strong>' . $row[$thisItem] .'</strong><br><span style="font-size:smaller">'. $row[$thisItemDesc] . '</span><br>';
+echo '<img class="thumbnail" src='. $row[$thisItemImage].'></a>';
+echo'<br>£' . $row[$thisItemPrice] . '<br>';
+echo '<br><a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" role="button">Add To Cart</a><br>
+</div>';
+    
+
+
+    
   }
   ;
   echo '</div>';
@@ -59,7 +64,5 @@ if ( mysqli_num_rows( $r ) > 0 )
 else { echo '<p>There are currently no items in this shop.</p>' ; }
 
 
-# Display footer section.
-include ( 'includes/footer.html' ) ;
 
 ?>
