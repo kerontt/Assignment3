@@ -55,6 +55,14 @@ if (!empty($_SESSION['cart']))
     $total += $subtotal;
 
     # Display the row/s:
+    echo '<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>';
+    
     echo 
     
     "<tr> 
