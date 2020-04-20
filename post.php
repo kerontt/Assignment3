@@ -16,15 +16,44 @@ include ( 'includes/menu.html' ) ;
 
 
 # Create navigation links.
-echo '<p><a href="forum.php">Forum</a> | <a href="shop.php">Shop</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
 
-# Display form.
-echo '<form action="post_action.php" method="post" accept-charset="utf-8">
-<p>Subject:<br><input name="subject" type="text" size="64" maxlength="100"></p>
-<p>Message:<br><textarea name="message" rows="5" cols="50"></textarea></p>
-<p><input name="submit" type="submit" value="Submit"></p></form>';
+echo '<p><a href="forum.php">Forum</a> | <a href="goodbye.php">Logout</a></p>' ;
 
+
+
+
+?>
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+
+            <h5 class="card-title text-center">New Post</h5>
+            <form action="post_action.php" method="post" accept-charset="utf-8">
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required autofocus>
+                <label for="inputEmail">Subject</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="text" id="message" name="message" class="form-control" placeholder="Message" required>
+                <label for="inputPassword">Message</label>
+              </div>
+
+              
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Post It!</button>
+                
+             </form>
+             </form>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+<?php 
 # Display footer section.
 include ( 'includes/footer.html' ) ;
-
 ?>
