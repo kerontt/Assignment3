@@ -3,17 +3,15 @@
 # Access session.
 session_start() ;
 
-# RemoRedirect if not logged in.
-
-
 
 # Set page title and display header section.
 $page_title = 'Shop' ;
 include ( 'includes/header.html' ) ;
 include ( 'includes/menu.html' ) ;
 
+
 # Create navigation links.
-echo '<p><a href="../cart.php">View Cart</a> | <a href="../forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
+echo '<div class="container-fluid"><p><a href="../cart.php">View Cart</a> | <a href="goodbye.php">Logout</a></p></div>' ;
 
 # Display sort criteria.
 echo '<div class="container">';
