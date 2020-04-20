@@ -51,8 +51,8 @@ if ( mysqli_num_rows( $r ) > 0 )
     $thisItemID = "item_id";
     # Display sort criteria.
     echo '<div class="container">';
-    echo '<a href="">Sort by Name<br></a>';
-    echo '<a href="shop_parsing.php?orderby=item_price&direction=ASC">Sort by Price<br></a>';
+    echo '<a href="shop_parsing.php?orderby=item_name&direction=ASC">Sort by Name (ascending)<br></a>';
+    echo '<a href="shop_parsing.php?orderby=item_price&direction=ASC">Sort by Price (ascending)<br></a>';
     
     #Display body section.
    while ( $row = mysqli_fetch_array( $r, MYSQLI_ASSOC ))
