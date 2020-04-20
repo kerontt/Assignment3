@@ -1,14 +1,29 @@
 header > h1 { 
 	overflow: hidden;
-  background-color: #d19148;
+  background-color: #d1311f;
   text-color: red;
    text-align: center;
    margin:0px;
    padding: 10px;
 	}
-Assress { padding: 10px; border-bottom: 1px dashed black ; font-style: italic ; font-size: x-large; text-align:right;}
-footer > p { border-top: 1px solid black ; font-style: italic ; background-color: blue ; color: white; text-align:center; }
-p#err_msg { color:#F00; font-weight:bold; 
+Assress { 
+	
+	padding: 10px; 
+	border-bottom: 1px dashed black ; 
+	font-style: italic ; 
+	font-size: x-large; 
+	text-align:right;
+	}
+footer > p { 
+	border-top: 1px solid black ; 
+	font-style: italic ; 
+	background-color: blue ; 
+	color: white; 
+	text-align:center; 
+	}
+p#err_msg { 
+	color:#F00; 
+	font-weight:bold; 
 }
 
 .product {
