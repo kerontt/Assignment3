@@ -50,7 +50,8 @@ include ( 'includes/menu.html' ) ;
 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" value="Login">Sign in</button>
 
 <div class="custom-control custom-checkbox mb-3">
-<a href="register.php">Register</a>
+<p>If not registered, <a href="register.php">create</a> an account<p>
+
 </div>
 </form>
 <?php 
