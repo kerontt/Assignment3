@@ -39,8 +39,8 @@ if ( mysqli_num_rows( $r ) > 0 )
       </div>
       <div class="text-muted small ml-3">
       <div>Post Date:<strong>'. $row['post_date'].'</strong></div>
-      <div><strong>134</strong> posts</div>
-      
+      <div><strong><a href="#">Like Post</a></strong></div>
+
       </div>
       </div>
       <div class="card-body">
