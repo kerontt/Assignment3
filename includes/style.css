@@ -7,7 +7,7 @@ header > h1 {
    padding: 10px;
    font-weight:bold; 
 	}
-Assress { 
+Address { 
 	
 	padding: 10px; 
 	border-bottom: 1px dashed black ; 
@@ -16,11 +16,12 @@ Assress {
 	text-align:right;
 	}
 footer > p { 
-	border-top: 1px solid black ; 
+	
 	font-style: italic ; 
 	background-color: #ffc126 ; 
-	color: white; 
+	color: #70179c; 
 	text-align:center; 
+	font-weight:bold; 
 	}
 p#err_msg { 
 	color:#ff4a2c; 
