@@ -9,6 +9,7 @@ if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load()
 # Set page title and display header section.
 $page_title = 'Forum' ;
 include ( 'includes/header.html' ) ;
+include ( 'includes/menu.html' ) ;
 
 # Open database connection.
 require ( 'connect_db.php' ) ;
@@ -29,7 +30,7 @@ if ( mysqli_num_rows( $r ) > 0 )
 else { echo '<p>There are currently no messages.</p>' ; }
 
 # Create navigation links.
-echo '<p><a href="post.php">Post Message</a> | <a href="shop.php">Shop</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
+echo '<div class="mainnav"><p><a href="post.php">Post Message</a> | <a href="goodbye.php">Logout</a></p></div>' ;
 
 # Close database connection.
 mysqli_close( $dbc ) ;
