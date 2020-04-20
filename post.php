@@ -31,22 +31,21 @@ echo '<p><a href="forum.php">Forum</a> | <a href="goodbye.php">Logout</a></p>' ;
 
             <h5 class="card-title text-center">New Post</h5>
             <form action="post_action.php" method="post" accept-charset="utf-8">
-            <form class="form-signin">
+            
+             
               <div class="form-label-group">
-                <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required autofocus>
-                <label for="inputEmail">Subject</label>
+                <textarea class="form-control rounded-8" rows="1" name="subject" placeholder="Subject" id="subject" required></textarea>
               </div>
 
               <div class="form-label-group">
-                <input type="text" id="message" name="message" class="form-control" placeholder="Message" required>
-                <label for="inputPassword">Message</label>
+                <textarea class="form-control rounded-8" rows="5" name="message" placeholder="Type your post here" id="message" required></textarea>
               </div>
 
               
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Post It!</button>
                 
              </form>
-             </form>
+             
         
         </div>
       </div>
