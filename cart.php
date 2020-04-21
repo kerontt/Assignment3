@@ -11,6 +11,10 @@ $page_title = 'Cart' ;
 include ( 'includes/header.html' ) ;
 include ('includes/menu.html' ) ;
 
+# Create navigation links.
+echo '<p><a href="checkout.php?total='.$total.'">Checkout</a> | <a href="goodbye.php">Logout</a></p>' ;
+
+
 # Check if form has been submitted for update.
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
@@ -53,22 +57,43 @@ if (!empty($_SESSION['cart']))
     # Calculate sub-totals and grand total.
     $subtotal = $_SESSION['cart'][$row['item_id']]['quantity'] * $_SESSION['cart'][$row['item_id']]['price'];
     $total += $subtotal;
+    
+    
 
     # Display the row/s:
-    echo '<div class="container mb-4">
-    <div class="row">
-        <div class="col-12">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>';
+    echo '<ul class="cartWrap">
+    <li class="items odd">
+    
+    <div class="infoWrap">
+    <div class="cartSection">
+    
+    <img class="thumbnail" src="'.$row['item_img'].'" alt="" class="itemImg" />
+    <h3>'.$row['item_name'].'</h3>
+    <h4>'.$row['item_desc'].'</h4>
+    
+    <p> <input type="text"  class="qty" name="qty'.$row['item_id'].'" value=> x '.$row['item_price'].'</p>
+    <p> 
+
+    
+
+    
+    
+    <div class="$total">
+    <p>£'.number_format ($subtotal, 2).'</p>
+    </div>
+   
+    </div>
+    </div>
+    </li>';
     
     echo 
     
     "<tr> 
-<td>{$row['item_name']}</td> <td>{$row['item_desc']}</td>
-    <td><input type=\"text\" size=\"3\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\"></td>
+
+    <input type=\"text\" size=\"3\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\"></tr>
     <td>@ {$row['item_price']} = </td> <td>".number_format ($subtotal, 2)."</td></tr>";
+    
+
   }
   
   # Close the database connection.
@@ -80,14 +105,21 @@ if (!empty($_SESSION['cart']))
   ' <tr><td colspan="5" style="text-align:right">Total = '.number_format($total,2).'</td></tr>
 </table>
 
-<input type="submit" name="submit" value="Update My Cart"></form>';
+<input type="submit" name="submit" value="Update My Cart">';
+  
+  echo'
+    <div class="subtotal cf">
+    <ul>
+    <li class="totalRow"><span class="label">Standard Shipping</span><span class="value">: £5.00</span></li>
+    <li class="totalRow final"><span class="label">Total</span><span class="value">: £'.number_format($total,2).'</span></li>
+    <li class="totalRow"><a href="checkout.php?total='.$total.'" class="btn continue">Checkout</a></li>
+    </ul>
+    </div></div>';
 }
 else
 # Or display a message.
 { echo '<p>Your cart is currently empty.</p>' ; }
 
-# Create navigation links.
-echo '<p><a href="shop.php">Shop</a> | <a href="checkout.php?total='.$total.'">Checkout</a> | <a href="forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
 
 # Display footer section.
 include ( 'includes/footer.html' ) ;
