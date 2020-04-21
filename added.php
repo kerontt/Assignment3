@@ -11,6 +11,11 @@ $page_title = 'Cart Addition' ;
 include ( 'includes/header.html' ) ;
 include ( 'includes/menu.html' ) ;
 
+# Create navigation links.
+echo '<div class="secnav"';
+echo '<p><a href="goodbye.php">Logout</a></p>' ;
+echo '</div>';
+
 # Get passed product id and assign it to a variable.
 if ( isset( $_GET['id'] ) ) $id = $_GET['id'] ; 
 
@@ -38,9 +43,9 @@ if ( mysqli_num_rows( $r ) == 1 )
     
     echo '<div class="container">';
     echo '<div class="card">';
-    echo '<p><span><img class="thumbnail" src='.$row["$thisItemImage"].' </span> Another '.$row["$thisItem"].' has been added to your cart</p>';
+    echo '<p><span><a href="cart.php"><img class="thumbnail" src='.$row["$thisItemImage"].' </span></a><p class="product-description"> Another '.$row["$thisItem"].' has been added to your cart. <br><a href="cart.php">Checkout Item</a></p>';
     echo '<h4 class="price">Item price: <span>£'. $row[$thisItemPrice] . '</span></h4></div>';
-    echo'</div></div>';
+    echo'</div></div><br>';
   } 
   else
   {
@@ -48,8 +53,8 @@ if ( mysqli_num_rows( $r ) == 1 )
     $_SESSION['cart'][$id]= array ( 'quantity' => 1, 'price' => $row['item_price'] ) ;
     echo '<div class="container">';
     echo '<div class="card">';
-    echo '<p><span><img class="thumbnail" src='.$row["$thisItemImage"].' </span> A '.$row["$thisItem"].' has been added to your cart</p>';
-    echo '<h4 class="price">Item price: <span>£'. $row[$thisItemPrice] . '</span></h4></div>';
+    echo '<p><span><a href="cart.php"><img class="thumbnail" src='.$row["$thisItemImage"].' </span></a><p class="product-description"> A '.$row["$thisItem"].' has been added to your cart. <br><a href="cart.php">Checkout Item</a>';
+    echo '<h4 class="price">Item price: <span>£'. $row[$thisItemPrice] . '</span></h4></div><br>';
     echo'</div></div>';
   }
 }
@@ -57,8 +62,6 @@ if ( mysqli_num_rows( $r ) == 1 )
 # Close database connection.
 mysqli_close($dbc);
 
-# Create navigation links.
-echo '<p><a href="shop.php">Shop</a> | <a href="cart.php">View Cart</a> | <a href="forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
 
 # Display footer section.
 include ( 'includes/footer.html' ) ;
