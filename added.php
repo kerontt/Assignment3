@@ -43,7 +43,7 @@ if ( mysqli_num_rows( $r ) == 1 )
     
     echo '<div class="container">';
     echo '<div class="card">';
-    echo '<p><span><a href="cart.php"><img class="thumbnail" src='.$row["$thisItemImage"].' </span></a><p class="product-description"> Another '.$row["$thisItem"].' has been added to your cart. <br><a href="cart.php">Checkout Item</a></p>';
+    echo '<p><span><a href="cart.php"><img class="thumbnail" src='.$row["$thisItemImage"].' </span></a><p class="product-description"> Another '.$row["$thisItem"].' has been added to your cart. <br><a href="cart.php">Checkout Item</a> or <a href="shop.php"> continue shopping</a></p>';
     echo '<h4 class="price">Item price: <span>£'. $row[$thisItemPrice] . '</span></h4></div>';
     echo'</div></div><br>';
   } 
@@ -53,7 +53,7 @@ if ( mysqli_num_rows( $r ) == 1 )
     $_SESSION['cart'][$id]= array ( 'quantity' => 1, 'price' => $row['item_price'] ) ;
     echo '<div class="container">';
     echo '<div class="card">';
-    echo '<p><span><a href="cart.php"><img class="thumbnail" src='.$row["$thisItemImage"].' </span></a><p class="product-description"> A '.$row["$thisItem"].' has been added to your cart. <br><a href="cart.php">Checkout Item</a>';
+    echo '<p><span><a href="cart.php"><img class="thumbnail" src='.$row["$thisItemImage"].' </span></a><p class="product-description"> A '.$row["$thisItem"].' has been added to your cart. <br><a href="cart.php">Checkout Item</a> or <a href="shop.php">continue shopping</a>';
     echo '<h4 class="price">Item price: <span>£'. $row[$thisItemPrice] . '</span></h4></div><br>';
     echo'</div></div>';
   }
