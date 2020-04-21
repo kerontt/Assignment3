@@ -71,7 +71,7 @@ if (!empty($_SESSION['cart']))
     <h3>'.$row['item_name'].'</h3>
     <h4>'.$row['item_desc'].'</h4>
     
-    <p> <input type="text"  class="qty" name="qty'.$row['item_id'].'" value="'.$_SESSION['cart'].''.$row['item_id'].''.$row['quantity'].'> x '.$row['item_price'].'"</p>
+    <p> <input type="text"  class="qty" name="qty'.$row['item_id'].'" value="'.$_SESSION['cart'].''.$row['item_id'].''.$row['quantity'].'"</p> x '.$row['item_price'].'</p>
     <p> 
 
     
