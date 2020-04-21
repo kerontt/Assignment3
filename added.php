@@ -21,6 +21,12 @@ require ( 'connect_db.php' ) ;
 $q = "SELECT * FROM shop WHERE item_id = $id" ;
 $r = mysqli_query( $dbc, $q ) ;
 if ( mysqli_num_rows( $r ) == 1 )
+
+    $thisItem = "item_name";
+    $thisItemDesc = "item_desc";
+    $thisItemImage = "item_img";
+    $thisItemPrice = "item_price";
+    $thisItemID = "item_id";
 {
   $row = mysqli_fetch_array( $r, MYSQLI_ASSOC );
 
@@ -29,13 +35,22 @@ if ( mysqli_num_rows( $r ) == 1 )
   { 
     # Add one more of this product.
     $_SESSION['cart'][$id]['quantity']++; 
-    echo '<p>Another '.$row["item_name"].' has been added to your cart</p>';
+    
+    echo '<div class="container">';
+    echo '<div class="card">';
+    echo '<p><span><img class="thumbnail" src='.$row["$thisItemImage"].' </span> Another '.$row["$thisItem"].' has been added to your cart</p>';
+    echo '<h4 class="price">Item price: <span>£'. $row[$thisItemPrice] . '</span></h4></div>';
+    echo'</div></div>';
   } 
   else
   {
     # Or add one of this product to the cart.
     $_SESSION['cart'][$id]= array ( 'quantity' => 1, 'price' => $row['item_price'] ) ;
-    echo '<p>A '.$row["item_name"].' has been added to your cart</p>' ;
+    echo '<div class="container">';
+    echo '<div class="card">';
+    echo '<p><span><img class="thumbnail" src='.$row["$thisItemImage"].' </span> A '.$row["$thisItem"].' has been added to your cart</p>';
+    echo '<h4 class="price">Item price: <span>£'. $row[$thisItemPrice] . '</span></h4></div>';
+    echo'</div></div>';
   }
 }
 
