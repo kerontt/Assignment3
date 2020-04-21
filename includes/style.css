@@ -66,6 +66,14 @@ margin: 20px;
    margin:0px;
    padding: 10px;
 		}
+		
+				.secnav {
+	overflow: hidden;
+  text-color: white;
+   text-align: left;
+   margin:0px;
+   padding: 10px;
+		}
 				
 .centertext{
 background-color: whitesmoke;
