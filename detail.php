@@ -71,7 +71,7 @@ $r = mysqli_query( $dbc, $q ) ;
                         <p class="product-description">'. $row[$thisItemDesc] . '</p>
 						<p class="product-description">'. $row[$thisItemDescLg] . '</p>
                         <p class="product-description"><a href='. $row[$thisItemDoc] . '</p></a>
-						<h4 class="price">current price: <span>£'. $row[$thisItemPrice] . '</span></h4></div>';
+						<h4 class="price">Current price: <span>£'. $row[$thisItemPrice] . '</span></h4></div>';
                         
 						echo 
 						'<div class="action">
