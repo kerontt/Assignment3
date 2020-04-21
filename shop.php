@@ -11,7 +11,7 @@ include ( 'includes/menu.html' ) ;
 
 
 # Create navigation links.
-echo '<div class="container-fluid"><p><a href="../cart.php">View Cart</a> | <a href="goodbye.php">Logout</a></p></div>' ;
+echo '<div class="container-fluid"><p> <a href="goodbye.php">Logout</a></p></div>' ;
 
 # Display sort criteria.
 echo '<div class="container">';
