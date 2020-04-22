@@ -53,7 +53,7 @@ echo '<br><a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" r
   }
   ;
   echo '</div>';
- 
+  echo '</div>';
   
   # Close database connection.
   mysqli_close( $dbc ) ; 
@@ -61,6 +61,9 @@ echo '<br><a href="added.php?id='.$row[$thisItemID].'" class="btn btn-primary" r
 # Or display message.
 else { echo '<p>There are currently no items in this shop.</p>' ; }
 
+# Display footer section.
+
 
 
 ?>
+
