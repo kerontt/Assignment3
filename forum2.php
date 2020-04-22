@@ -42,8 +42,12 @@ if ( mysqli_num_rows( $r ) > 0 )
       </div>
       <div class="text-muted small ml-3">
       <div>Post Date:<strong>'. $row['post_date'].'</strong></div>
-      <div><strong><a href="#">Like Post</a></strong></div>
+      <div><strong><a href="#">Like Post</a></strong></div>';
           
+echo $post["post_text"] .'&nbsp;<button data-postid="'.$post['id'].'" data-likes="'.$post['like_count'].'" class="like">Like ('.$post['like_count'].')</button><hr />';
+
+
+echo'
       </div>
       </div>
       <div class="card-body">
