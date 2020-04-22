@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="includes/cart.css">
+s<link rel="stylesheet" href="includes/cart.css">
 
 <?php # DISPLAY SHOPPING CART PAGE.
 
@@ -101,7 +101,7 @@ echo "<span><input type=\"text\" size=\"3\" name=\"qty[{$row['item_id']}]\" valu
      <div class="col-md-12 col-lg-4"> 
 <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Update my cart</button><br>
 
-<a href="checkout.php?total='.$total.'"><button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Checkout</button></a></br>
+<a href="checkout.php?total='.$total.'"><button name="checkout" placeholder="Checkout" type="submit" class="btn btn-link btn-lg btn-block">Checkout</a></button></br>
 </div>';
   
   # Display the sub-totals.
@@ -116,7 +116,7 @@ echo "<span><input type=\"text\" size=\"3\" name=\"qty[{$row['item_id']}]\" valu
 }
 else
 # Or display a message.
-{ echo '<p>Your cart is currently empty.</p>' ; }
+{ echo '<div class="centertext"><p>Your cart is currently empty.</p></div></br>' ; }
 
 
 # Display footer section.
