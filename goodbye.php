@@ -18,11 +18,17 @@ $_SESSION = array() ;
 session_destroy() ;
 
 
-echo '<div class="container"';
-# Display body section.
-echo '<h1>Goodbye!</h1><p>You are now logged out.</p><p><a href="login.php">Login</a></p>' ;
 
-echo '</div>';
+
+
+# Create navigation links.
+if ($_SESSION['Firstname'] = "") {
+    # Display body section.if logged in
+    echo '<div class="secnav"><h1>Goodbye!</h1><p>You are now logged out.</p><p><a href="login.php">Login</a></p></div>';
+
+    }
+    
+
 # Display footer section.
 include ( 'includes/footer.html' ) ;
 
