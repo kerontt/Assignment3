@@ -1,7 +1,7 @@
 <?php
 if (strpos($_SERVER['SERVER_NAME'], "jose") !== false)
 {
-$dbc = mysqli_connect("jose.stca.herts.ac.uk", "UrJoseId", "UrJosePw", "dbUrJoseId")
+$dbc = mysqli_connect("jose.stca.herts.ac.uk", "kg15abr", "WIcnCY87", "dbkg15abr")
 OR die(mysqli_connect_error());
 }
 else
