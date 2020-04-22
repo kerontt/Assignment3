@@ -171,7 +171,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     # On successful register user 'Insert' into 'users' database table.
     if ( empty( $errors ) )
     {
-        echo '<div class="container">';
+        echo '<div class="centertext">';
         #ensure that the database table field and the relevant form variable are entered in this section
         $q = "INSERT INTO users (p_title, first_name, last_name, dob, email, address_1, town, postcode, pass, reg_date) VALUES ('$pti', '$fn', '$ln', '$dob', '$e', '$ad', '$tw', '$pc', SHA1('$p'), NOW() )";
         $r = @mysqli_query ( $dbc, $q ) ;
@@ -188,7 +188,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     # Or report errors.
     else
     {
-        echo '<div class="container">';
+        echo '<div class="centertext">';
         echo '<h1>Something went wrong!</h1><p id="err_msg">The following error(s) occurred:<br>' ;
         foreach ( $errors as $msg )
         { echo " - $msg<br>" ; }
