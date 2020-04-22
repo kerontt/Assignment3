@@ -9,6 +9,18 @@ if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load()
 # Set page title and display header section.
 $page_title = 'Checkout' ;
 include ( 'includes/header.html' ) ;
+include ( 'includes/menu.html' ) ;
+
+# Create navigation links.
+if ($_SESSION['Firstname'] = "") {
+    # Display body section.if logged in
+    echo "<div class='secnav'><h1></h1><p>You are not logged in </p></div>";
+    echo '<div class="secnav"><p> <a href="goodbye.php">Logout</a></p></div>' ;}
+    else {
+        echo "<div class='secnav'><h1></h1><p>You are logged in as:<br> {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
+        echo '<p><a href="goodbye.php">Logout</a></p>';
+        echo '</div></br>';
+    }
 
 # Check for passed total and cart.
 if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['cart']) ) )
@@ -41,24 +53,15 @@ if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['car
   mysqli_close($dbc);
 
   # Display order number.
-  echo "<p>Thanks for your order. Your Order Number Is #".$order_id."</p>";
+  echo "<div class='centertext'><p>Thanks for your order. Your Order Number Is #".$order_id."</p></div></br>";
 
   # Remove cart items.  
   $_SESSION['cart'] = NULL ;
 }
 # Or display a message.
-else { echo '<p>There are no items in your cart.</p>' ; }
+else { echo '<div class="centertext"><p>There are no items in your cart.</p></div></br>' ; }
 
-# Create navigation links.
-if ($_SESSION['Firstname'] = "") {
-    # Display body section.if logged in
-    echo "<div class='secnav'><h1></h1><p>You are not logged in </p></div>";
-    echo '<div class="secnav"><p> <a href="goodbye.php">Logout</a></p></div>' ;}
-    else {
-        echo "<div class='secnav'><h1></h1><p>You are logged in as:<br> {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
-        echo '<p><a href="goodbye.php">Logout</a></p>';
-        echo '</div>';
-    }
+
     
 # Display footer section.
 include ( 'includes/footer.html' ) ;
