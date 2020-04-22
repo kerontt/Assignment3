@@ -24,7 +24,7 @@ if ($_SESSION['Firstname'] = "") {
     echo '<div class="container-fluid"><p> <a href="goodbye.php">Logout</a></p></div>' ;}
 else {
     
-    echo "<h1></h1><p>You are logged in {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
+    echo "<h1></h1><p>You are logged in as:<br> {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
     echo '<p><a href="goodbye.php">Logout</a></p>';
     
 }

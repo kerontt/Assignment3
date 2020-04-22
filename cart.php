@@ -61,6 +61,8 @@ if (!empty($_SESSION['cart']))
     
 
     # Display the row/s:
+
+    
     echo '<ul class="cartWrap">
     <li class="items odd">
     
@@ -70,16 +72,9 @@ if (!empty($_SESSION['cart']))
     <img class="thumbnail" src="'.$row['item_img'].'" alt="" class="itemImg" />
     <h3>'.$row['item_name'].'</h3>
     <h4>'.$row['item_desc'].'</h4>
-    
-    <p> <input type="text"  class="qty" name="qty'.$row['item_id'].'" value="'.$_SESSION['cart'].''.$row['item_id'].''.$row['quantity'].'"</p> x '.$row['item_price'].'</p>
-    <p> 
-
-    
-
-    
-    
+    <p> <input type="text"  class="qty" name="qty['.$row['item_id'].']" value='.$_SESSION['cart'].''.$row['item_id'].''.$row['quantity'].'/> x '.$row['item_price'].'</p>
     <div class="$total">
-    <p>£'.number_format ($subtotal, 2).'</p>
+    <p>Sub-Total: £'.number_format ($subtotal, 2).'</p>
     </div>
    
     </div>
