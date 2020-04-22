@@ -177,7 +177,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
         $r = @mysqli_query ( $dbc, $q ) ;
         if ($r)
         { echo '<h1>Great News!</h1><p>You have successfully registered</p><p><a href="login.php">Login</a></p>'; }
-        echo '/<div>';
+        echo '<div>';
         # Close database connection.
         mysqli_close($dbc);
         
@@ -189,10 +189,6 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     else
     {
         echo '<div class="centertext">';
-        echo '<h1>Something went wrong!</h1><p id="err_msg">The following error(s) occurred:<br>' ;
-        foreach ( $errors as $msg )
-        { echo " - $msg<br>" ; }
-        echo 'Please try again.</p>';
         
         echo '/<div>';
         # Close database connection.
@@ -204,19 +200,26 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 <!-- Use css from style sheet> -->
 
 
- <div class="container">
- <div class="form-group">
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+        
 
-<!-- Display body section with sticky form. -->
+
 <br>
-<h1>Register</h1>
+<!-- Display form body section. -->
+  <h3 class="login-heading mb-4">Register</h3>
 <form action="register.php" method="post">
+
 
 
 <!-- Title form field added -->
 
-<label for="TitleFormControlSelect1">Title: </label>
-    <select class="form-control" id="TitleFormControlSelect1" name="p_title">
+<label>Title: </label>
+    <select class="form-control" id="TitleFormControlSelect1"  name="p_title">
       <option>Dr</option>
       <option>Miss</option>
       <option>Mr</option>
@@ -228,60 +231,69 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 
 <div class="form-row">
 <div class="form-group col-md-6">
-<p>First Name: <input type="text" name="first_name" size="20" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
+<p>First Name: <input type="text" name="first_name" class="form-control" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> 
 </div>
 <div class="form-group col-md-6">
-Last Name: <input type="text" name="last_name" placeholder="Last family name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
+Last Name: <input type="text" name="last_name" class="form-control" placeholder="Last family name" size="20" value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>"></p>
 </div>
 </div>
 
 <div class="form-row">
 <div class="form-group col-md-6">
 <!-- address form field added -->
-<p>Date of Birth: <input type="date" name="dob" size="60" value="<?php if (isset($_POST['dob'])) echo $_POST['dob']; ?>"></p>
+<p>Date of Birth: <input type="date" name="dob" class="form-control" value="<?php if (isset($_POST['dob'])) echo $_POST['dob']; ?>"></p>
 </div>
 
 <div class="form-group col-md-6">
-<p>Email Address: <input type="text" name="email" placeholder="e.g. jane_smith@contoso.com" size="50" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
+<p>Email Address: <input type="email" name="email" class="form-control" id="exampleFormControlInput1"placeholder="e.g. jane_smith@contoso.com" size="50" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"></p>
+
 </div>
 </div>
 
  <div class="form-group">
 <!-- address form field added -->
-<p>Address: <input type="text" name="address_1" size="60" placeholder="House number or building name, street name" value="<?php if (isset($_POST['address_1'])) echo $_POST['address_1']; ?>"></p>
+<p>Address: <input type="text" name="address_1" class="form-control" placeholder="House number or building name, street name" value="<?php if (isset($_POST['address_1'])) echo $_POST['address_1']; ?>"></p>
 </div>
 
 <div class="form-row">
 <div class="form-group col-md-6">
 <!-- town form field added -->
-<p>Town: <input type="text" name="town" size="60" value="<?php if (isset($_POST['town'])) echo $_POST['town']; ?>"></p>
+<p>Town: <input type="text" name="town" class="form-control" placeholder="e.g. WineVille" value="<?php if (isset($_POST['town'])) echo $_POST['town']; ?>"></p>
 </div>
-</div>
+
 
 <div class="form-group col-md-6">
 <!-- town form field added -->
-<p>Postcode: <input type="text" name="postcode" placeholder="e.g. AL10 9EU" size="12" value="<?php if (isset($_POST['postcode'])) echo $_POST['postcode']; ?>"></p>
+<p>Postcode: <input type="text" name="postcode" placeholder="e.g. AL10 9EU" class="form-control" value="<?php if (isset($_POST['postcode'])) echo $_POST['postcode']; ?>"></p>
 </div>
 
 
 <div class="form-row">
 <div class="form-group col-md-6">
-<p>Password: <input type="password" name="pass1" size="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>" >
-</div>
-<div class="form-group col-md-6">
-Confirm Password: <input type="password" name="pass2" size="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>"></p>
+<p>Password: <input type="password" name="pass1" class="form-control" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>" >
 <p><input type="submit" value="Register"></p>
+</div>
+<div class="form-group col-md-6">
+<p>Confirm Password: <input type="password" name="pass2" class="form-control" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>"></p>
+
+</div>
+</div>
+</div>
 </div>
 </div>
 </form>
 
-</div>
-
-</div>
 <br>
 
 
 <?php 
+# Display any error messages if present.
+if ( isset( $errors ) && !empty( $errors ) )
+{
+    echo '<p id="err_msg">Oops! Something went wrong!:<br>' ;
+    foreach ( $errors as $msg ) { echo " - $msg<br>" ; }
+    echo 'Please try again or <a href="register.php">Register</a></p>' ;
+}
 
 # Display footer section.
 include ( 'includes/footer.html' ) ; 

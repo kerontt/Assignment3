@@ -22,11 +22,9 @@ session_destroy() ;
 
 
 # Create navigation links.
-if ($_SESSION['Firstname'] = "") {
-    # Display body section.if logged in
-    echo '<div class="secnav"><h1>Goodbye!</h1><p>You are now logged out.</p><p><a href="login.php">Login</a></p></div>';
+echo '<div class="secnav"><h1>Goodbye!</h1><p>You are now logged out.</p><p><a href="login.php">Login</a></p></div>';
 
-    }
+    
     
 
 # Display footer section.

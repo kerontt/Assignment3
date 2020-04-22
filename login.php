@@ -63,7 +63,8 @@ if ( isset( $errors ) && !empty( $errors ) )
     echo '<p id="err_msg">Oops! Something went wrong!:<br>' ;
     foreach ( $errors as $msg ) { echo " - $msg<br>" ; }
     echo 'Please try again or <a href="register.php">Register</a></p>' ;
-}?>
+}
+?>
 
             </div>
           </div>
