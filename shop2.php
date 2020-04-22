@@ -30,19 +30,28 @@ if ($_SESSION['Firstname'] = "") {
     }
     
     
-    # Display sort criteria.
-    echo '<div class="container">';
-    echo '<a href="shop_parsing.php?orderby=item_name&direction=ASC">Sort by Name (ascending)<br></a>';
-    echo '<a href="shop_parsing.php?orderby=item_price&direction=ASC">Sort by Price (ascending)<br></a>';
-    
-    
+ 
     
     // index end
     # Open database connection.
     require ( 'connect_db.php' ) ;
     
+    
+    $order="item_name";
+    $sort="ASC";
+    
+    # Get passed product order value.
+    if ( isset( $_GET['order'] ) ) $order = $_GET['order'] ;
+    
+    
+    # Get passed product iorder direction.
+    if ( isset( $_GET['sort'] ) ) $sort = $_GET['sort'] ;
+  
+    
+    
     # Retrieve items from 'shop' database table.
-    $q = "SELECT * FROM shop" ;
+    $q = "SELECT * FROM shop ORDER by $order $sort";
+
     $r = mysqli_query( $dbc, $q ) ;
     if ( mysqli_num_rows( $r ) > 0 )
     {
@@ -53,6 +62,19 @@ if ($_SESSION['Firstname'] = "") {
         $thisItemPrice = "item_price";
         $thisItemID = "item_id";
         # Display body section.
+        
+     
+        
+       
+        
+        # Display sort criteria.
+        echo '<div class="container">';
+        echo '<a href="?order=item_name&sort=ASC">Sort by Name (ascending)<br></a>';
+        echo '<a href="?order=item_name&sort=DESC">Sort by Name (descending)<br></a>';
+        echo '<a href="?order=item_price&sort=ASC">Sort by Price (ascending)<br></a>';
+        echo '<a href="?order=item_price&sort=DESC">Sort by Price (decending)<br></a>';
+        
+        
         echo '<div class="container">';
         
         while ( $row = mysqli_fetch_array( $r, MYSQLI_ASSOC ))
