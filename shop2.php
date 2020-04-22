@@ -21,11 +21,11 @@ if ($_SESSION['Firstname'] = "") {
     
     
     # Create navigation links.
-    echo '<div class="container-fluid"><p> <a href="goodbye.php">Logout</a></p></div>' ;}
+    echo '<div class="container"><p> <a href="goodbye.php">Logout</a></p></div>' ;}
     else {
-        
-        echo "<h1></h1><p>You are logged in as:<br> {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
+        echo "<div class='container'><h1></h1><p>You are logged in as:<br> {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
         echo '<p><a href="goodbye.php">Logout</a></p>';
+        echo '</div>';
         
     }
     
@@ -63,19 +63,17 @@ if ($_SESSION['Firstname'] = "") {
         $thisItemID = "item_id";
         # Display body section.
         
-     
-        
-       
+
+
+        echo '<div class="container">';
         
         # Display sort criteria.
-        echo '<div class="container">';
-        echo '<a href="?order=item_name&sort=ASC">Sort by Name (ascending)<br></a>';
-        echo '<a href="?order=item_name&sort=DESC">Sort by Name (descending)<br></a>';
-        echo '<a href="?order=item_price&sort=ASC">Sort by Price (ascending)<br></a>';
+        echo '<a href="?order=item_name&sort=ASC">Sort by Name (ascending) | </a>';
+        echo '<a href="?order=item_name&sort=DESC">Sort by Name (descending) | </a>';
+        echo '<a href="?order=item_price&sort=ASC">Sort by Price ascending) | </a>';
         echo '<a href="?order=item_price&sort=DESC">Sort by Price (decending)<br></a>';
         
         
-        echo '<div class="container">';
         
         while ( $row = mysqli_fetch_array( $r, MYSQLI_ASSOC ))
         {
