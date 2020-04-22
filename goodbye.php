@@ -18,7 +18,7 @@ $_SESSION = array() ;
 session_destroy() ;
 
 
-echo 'div class="container"';
+echo '<div class="container"';
 # Display body section.
 echo '<h1>Goodbye!</h1><p>You are now logged out.</p><p><a href="login.php">Login</a></p>' ;
 
