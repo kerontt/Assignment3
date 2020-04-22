@@ -1,102 +1,103 @@
-
-
-
+<!DOCTYPE html>
+<html>
 <head>
-<link rel="stylesheet" href="includes/style.css">
+	<title>Shopping Cart</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="includes/cart.css">
 </head>
-
-
-<?php # DISPLAY SHOPPING CART PAGE.
-
-# Access session.
-session_start() ;
-
-# Redirect if not logged in.
-if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
-
-# Set page title and display header section.
-$page_title = 'Cart' ;
-include ( 'includes/header.html' ) ;
-include ('includes/menu.html' ) ;
-
-?>
-
-<title><?php $page_title ?></title>
-<div class="wrap cf">
-  <h1 class="projTitle">Responsive Table<span>-Less</span> Shopping Cart</h1>
-  <div class="heading cf">
-    <h1>My Cart</h1>
-    <a href="#" class="continue">Continue Shopping</a>
-  </div>
-  <div class="cart">
-<!--    <ul class="tableHead">
-      <li class="prodHeader">Product</li>
-      <li>Quantity</li>
-      <li>Total</li>
-       <li>Remove</li>
-    </ul>-->
-    <ul class="cartWrap">
-      <li class="items odd">
-        
-    <div class="infoWrap"> 
-        <div class="cartSection">
-        <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-          <p class="itemNumber">#QUE-007544-002</p>
-          <h3>Item Name 1</h3>
-        
-           <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
-        
-          <p class="stockStatus"> In Stock</p>
-        </div>  
-    
-        
-        <div class="prodTotal cartSection">
-          <p>$15.00</p>
-        </div>
-              <div class="cartSection removeWrap">
-           <a href="#" class="remove">x</a>
-        </div>
-      </div>
-      </li>
-      <li class="items even">
-        
-       <div class="infoWrap"> 
-        <div class="cartSection">
-         
-        <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
-          <p class="itemNumber">#QUE-007544-002</p>
-          <h3>Item Name 1</h3>
-        
-           <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
-        
-          <p class="stockStatus"> In Stock</p>
-        </div>  
-    
-
-         <div class="special"><div class="specialContent">Free gift with purchase!, gift wrap, etc!!</div></div>
-      </li>
-      
-      
-      <!--<li class="items even">Item 2</li>-->
- 
-    </ul>
-  </div>
-  
-  <div class="promoCode"><label for="promo">Have A Promo Code?</label><input type="text" name="promo" placholder="Enter Code" />
-  <a href="#" class="btn"></a></div>
-  
-  <div class="subtotal cf">
-    <ul>
-      <li class="totalRow"><span class="label">Subtotal</span><span class="value">$35.00</span></li>
-      
-          <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li>
-      
-            <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
-            <li class="totalRow final"><span class="label">Total</span><span class="value">$44.00</span></li>
-      <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>
-    </ul>
-  </div>
-</div>
-
-
-Resources
+<body>
+	<main class="page">
+	 	<section class="shopping-cart light"> <!-- controls card color-->
+	 		<div class="container">
+		        <div class="block-heading">
+		          <h2>Keron's Cart</h2>
+		        </div>
+		        <div class="content">
+	 				<div class="row">
+	 					<div class="col-md-12 col-lg-8">
+	 						<div class="items">
+				 				<div class="product">
+				 					<div class="row">
+					 					<div class="col-md-3">
+					 						<img class="img-fluid mx-auto d-block image" src="image.jpg">
+					 					</div>
+					 					<div class="col-md-8">
+					 						<div class="info">
+						 						<div class="row">
+							 						<div class="col-md-5 product-name">
+							 							<div class="product-name">
+								 							<a href="#">Lorem Ipsum dolor</a>
+								 							<div class="product-info">
+									 							<div>Display: <span class="value">5 inch</span></div>
+									 							<div>RAM: <span class="value">4GB</span></div>
+									 							<div>Memory: <span class="value">32GB</span></div>
+									 						</div>
+									 					</div>
+							 						</div>
+							 						<div class="col-md-4 quantity">
+							 							<label for="quantity">Quantity:</label>
+							 							<input id="quantity" type="number" value ="1" class="form-control quantity-input">
+							 						</div>
+							 						<div class="col-md-3 price">
+							 							<span>$120</span>
+							 						</div>
+							 					</div>
+							 				</div>
+					 					</div>
+					 				</div>
+				 				</div>
+				 								 				<div class="product">
+				 					<div class="row">
+					 					<div class="col-md-3">
+					 						<img class="img-fluid mx-auto d-block image" src="image.jpg">
+					 					</div>
+					 					<div class="col-md-8">
+					 						<div class="info">
+						 						<div class="row">
+							 						<div class="col-md-5 product-name">
+							 							<div class="product-name">
+								 							<a href="#">Lorem Ipsum dolor</a>
+								 							<div class="product-info">
+									 							<div>Display: <span class="value">5 inch</span></div>
+									 							<div>RAM: <span class="value">4GB</span></div>
+									 							<div>Memory: <span class="value">32GB</span></div>
+									 						</div>
+									 					</div>
+							 						</div>
+							 						<div class="col-md-4 quantity">
+							 							<label for="quantity">Quantity:</label>
+							 							<input id="quantity" type="number" value ="1" class="form-control quantity-input">
+							 						</div>
+							 						<div class="col-md-3 price">
+							 							<span>$120</span>
+							 						</div>
+							 					</div>
+							 				</div>
+					 					</div>
+					 				</div>
+				 				</div>
+				 			</div>
+			 			</div>
+			 			<div class="col-md-12 col-lg-4">
+			 				<div class="summary">
+			 					<h3>Summary</h3>
+			 					<div class="summary-item"><span class="text">Subtotal</span><span class="price">$360</span></div>
+			 					<div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
+			 					<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
+			 					<div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
+			 					<button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+				 			</div>
+			 			</div>
+		 			</div> 
+		 		</div>
+	 		</div>
+		</section>
+	</main>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
