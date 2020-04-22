@@ -74,3 +74,21 @@ mysqli_close( $dbc ) ;
 include ( 'includes/footer.html' ) ;
 
 ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(".like").click(function(){
+    let button = $(this)
+    let post_id = $(button).data('postid')
+$.post("index.php",
+{
+    'like' : post_id
+},
+function(data, status){
+    $(button).html("Like (" + ($(button).data('likes')+1) + ")")
+    $(button).data('likes', $(button).data('likes')+1)
+});
+});
+</script>
+</body>
+</html>
