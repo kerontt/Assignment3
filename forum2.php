@@ -22,19 +22,7 @@ require ( 'connect_db.php' ) ;
 $q = "SELECT * FROM forum" ;
 $r = mysqli_query( $dbc, $q ) ;
 
-$forum = $r->get('forum');
 
-if (isset($_POST['like'])) {
-    $post_id = $_POST['like'];
-    $user_id = $_SESSION[ 'user_id' ];
-    $query = Array('like_count'=>$r->inc(1));
-    $r->where('id', $post_id);
-    $r->update('posts', $query);
-    
-    $r->insert('likes', Array('post_id'=>$post_id));
-    $r->insert('likes', Array('user_id'=>$user_id));
-    
-}
 
 if ( mysqli_num_rows( $r ) > 0 )
 {
@@ -86,21 +74,3 @@ mysqli_close( $dbc ) ;
 include ( 'includes/footer.html' ) ;
 
 ?>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-$(".like").click(function(){
-    let button = $(this)
-    let post_id = $(button).data('postid')
-$.post("index.php",
-{
-    'like' : post_id
-},
-function(data, status){
-    $(button).html("Like (" + ($(button).data('likes')+1) + ")")
-    $(button).data('likes', $(button).data('likes')+1)
-});
-});
-</script>
-</body>
-</html>
