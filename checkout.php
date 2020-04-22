@@ -50,8 +50,16 @@ if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['car
 else { echo '<p>There are no items in your cart.</p>' ; }
 
 # Create navigation links.
-echo '<p><a href="shop.php">Shop</a> | <a href="forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
-
+if ($_SESSION['Firstname'] = "") {
+    # Display body section.if logged in
+    echo "<div class='secnav'><h1></h1><p>You are not logged in </p></div>";
+    echo '<div class="secnav"><p> <a href="goodbye.php">Logout</a></p></div>' ;}
+    else {
+        echo "<div class='secnav'><h1></h1><p>You are logged in as:<br> {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
+        echo '<p><a href="goodbye.php">Logout</a></p>';
+        echo '</div>';
+    }
+    
 # Display footer section.
 include ( 'includes/footer.html' ) ;
 
