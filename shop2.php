@@ -12,18 +12,13 @@ include ( 'includes/menu.html' ) ;
 
 
 # Create navigation links.
-
-
 if ($_SESSION['Firstname'] = "") {
     # Display body section.if logged in
-    echo "<h1></h1><p>You are not logged in </p>";
+    echo "<div class='secnav'><h1></h1><p>You are not logged in </p></div>";
     
-    
-    
-    # Create navigation links.
-    echo '<div class="container"><p> <a href="goodbye.php">Logout</a></p></div>' ;}
+    echo '<div class="secnav"><p> <a href="goodbye.php">Logout</a></p></div>' ;}
     else {
-        echo "<div class='container'><h1></h1><p>You are logged in as:<br> {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
+        echo "<div class='secnav'><h1></h1><p>You are logged in as:<br> {$_SESSION['first_name']} {$_SESSION['last_name']} </p>";
         echo '<p><a href="goodbye.php">Logout</a></p>';
         echo '</div>';
         
@@ -36,23 +31,33 @@ if ($_SESSION['Firstname'] = "") {
     # Open database connection.
     require ( 'connect_db.php' ) ;
     
-    
+    //Default sorting of items.
     $order="item_name";
     $sort="ASC";
+    $property="item_price";
+    $minimum="200";
     
     # Get passed product order value.
     if ( isset( $_GET['order'] ) ) $order = $_GET['order'] ;
     
     
-    # Get passed product iorder direction.
+    # Get passed product sort direction.
     if ( isset( $_GET['sort'] ) ) $sort = $_GET['sort'] ;
+    
+    # Get passed product item value.
+    if ( isset( $_GET['property'] ) ) $property = $_GET['property'] ;
+    
+    
+    # Get passed product amount.
+    if ( isset( $_GET['minimum'] ) ) $minimum = $_GET['minimum'] ;
+    
   
     
     
     # Retrieve items from 'shop' database table.
     $q = "SELECT * FROM shop ORDER by $order $sort";
-
     $r = mysqli_query( $dbc, $q ) ;
+
     if ( mysqli_num_rows( $r ) > 0 )
     {
         
@@ -72,6 +77,10 @@ if ($_SESSION['Firstname'] = "") {
         echo '<a href="?order=item_name&sort=DESC">Sort by Name (descending) | </a>';
         echo '<a href="?order=item_price&sort=ASC">Sort by Price ascending) | </a>';
         echo '<a href="?order=item_price&sort=DESC">Sort by Price (decending)<br></a>';
+
+        # Display filter query
+        $q = "SELECT * FROM shop WHERE item_price < 200";
+        echo '<a href="?property=item_price&minimum=200">200 value<br></a>';
         
         
         
