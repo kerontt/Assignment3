@@ -36,7 +36,7 @@ if ($_SESSION['Firstname'] = "") {
     if (isset($_POST['like'])) {
         $post_id = $_POST['like'];
         $user_id = $_SESSION[ 'user_id' ];
-        
+        $post = "";
         
         
         
